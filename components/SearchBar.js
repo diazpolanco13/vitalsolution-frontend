@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { TransitionContext } from "../context/TransitionContext";
+import DarkMode from "./DarkMode";
 import DropDown from "./DropDown";
 
 const SearchBar = () => {
@@ -7,15 +8,15 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
+      <div className="relative z-10 flex flex-shrink-0 h-16 bg-white shadow">
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+          className="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
         >
           <span className="sr-only">Open sidebar</span>
           {/* Heroicon name: menu-alt-2 */}
           <svg
-            className="h-6 w-6"
+            className="w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -30,17 +31,17 @@ const SearchBar = () => {
             />
           </svg>
         </button>
-        <div className="flex-1 px-4 flex justify-between">
-          <div className="flex-1 flex">
-            <form className="w-full flex md:ml-0" action="#" method="GET">
+        <div className="flex justify-between flex-1 px-4">
+          <div className="flex flex-1">
+            <form className="flex w-full md:ml-0" action="#" method="GET">
               <label htmlFor="search_field" className="sr-only">
-                Search
+                Buscar
               </label>
               <div className="relative w-full text-gray-400 focus-within:text-gray-600">
                 <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
                   {/* Heroicon name: search */}
                   <svg
-                    className="h-5 w-5"
+                    className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -55,19 +56,22 @@ const SearchBar = () => {
                 </div>
                 <input
                   id="search_field"
-                  className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
-                  placeholder="Search"
+                  className="block w-full h-full py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 border-transparent focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                  placeholder="Buscar"
                   type="search"
                 />
               </div>
             </form>
           </div>
-          <div className="ml-4 flex items-center md:ml-6">
-            <button className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
+          <DarkMode/>
+
+          <div className="flex items-center ml-4 md:ml-6">
+            <button className="p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span className="sr-only">View notifications</span>
               {/* Heroicon name: bell */}
               <svg
-                className="h-6 w-6"
+                className="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
