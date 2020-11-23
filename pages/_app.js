@@ -1,9 +1,11 @@
 import '../styles/styles.css';
 import Head from 'next/head';
 
+
 function MyApp({ Component, pageProps }) {
 
   return (
+
     <>
         <Head>
         <title>Vital Solucion Store - Te damos vida</title>
@@ -17,8 +19,11 @@ function MyApp({ Component, pageProps }) {
             <meta name="msapplication-TileColor" content="#00a300"/>
             <meta name="theme-color" content="#ffffff"/>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
-      <Component {...pageProps} />
+      </Head>
+
+      {/* pages a denderizar */}
+        <Component {...pageProps} />    
+
     </>
   )
 }
