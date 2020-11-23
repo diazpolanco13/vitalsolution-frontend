@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from 'next/router';
 import Link from "next/link";
 
-const SidebarDesktop = () => {
+const SidebarDesktop = ( ) => {
+  
+  const router = useRouter()  
+  const path = router.query.path
+
   return (
     <>
       {/* Static sidebar for desktop */}
@@ -18,8 +23,8 @@ const SidebarDesktop = () => {
             </div>
             <div className="flex-1 flex flex-col overflow-y-auto">
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
-                <div
-                  className="group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md bg-gray-900"
+              <div
+                  className={`${path === undefined && 'bg-gray-900'} group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md `}
                 >
                     <svg
                       className="mr-3 h-6 w-6 text-gray-300"
@@ -41,8 +46,7 @@ const SidebarDesktop = () => {
                   </Link> 
                 </div>
                 <div
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700"
+                  className={`${path == 'clientes' && 'bg-gray-900'} group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md `}
                 >
                   {/* Heroicon name: users */}
                   <svg
@@ -66,8 +70,7 @@ const SidebarDesktop = () => {
                 </div>
 
                 <div
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700"
+                  className={`${path == 'productos' && 'bg-gray-900'} group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md `}
                 >
                   {/* Heroicon name: folder */}
                   <svg
@@ -87,8 +90,7 @@ const SidebarDesktop = () => {
                 </div>
 
                 <div
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700"
+                  className={`${path == 'pedidos' && 'bg-gray-900'} group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md `}
                 >
                   {/* Heroicon name: calendar */}
                   <svg
@@ -102,13 +104,12 @@ const SidebarDesktop = () => {
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                   </svg>
                   <Link href="/dashboard/pedidos">
-                    <a>Pedidos</a>
+                    <a>Pedidos</a> 
                   </Link> 
                 </div>
 
                 <div
-                  href="#"
-                  className="group flex items-center px-2 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700"
+                  className={`${path == 'reportes' && 'bg-gray-900'} group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md `}
                 >
                   {/* Heroicon name: chart-bar */}
                   <svg

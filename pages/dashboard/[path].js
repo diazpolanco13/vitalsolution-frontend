@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from 'next/router';
 
 import Dashboard from "../../components/Dashboard";
 
-const index = () => {
+const path = () => {
 
   const router = useRouter()
-  const { panel } = router.query
+  const path = router.query.path
 
   return (
     <>
@@ -17,7 +17,7 @@ const index = () => {
         >
           <div className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 className="text-2xl font-semibold text-gray-900">{panel ? panel : "panel"}</h1>
+              <h1 className="text-2xl font-semibold text-gray-900">{path}</h1>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {/* Replace with your content */}
@@ -33,4 +33,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default path;
