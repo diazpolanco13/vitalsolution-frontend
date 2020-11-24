@@ -1,5 +1,7 @@
 import '../styles/styles.css';
 import Head from 'next/head';
+import { ApolloProvider } from '@apollo/client';
+import client from '../config/apollo'
 
 
 function MyApp({ Component, pageProps }) {
@@ -21,9 +23,9 @@ function MyApp({ Component, pageProps }) {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      {/* pages a denderizar */}
+      <ApolloProvider client={client}>
         <Component {...pageProps} />    
-
+      </ApolloProvider>
     </>
   )
 }
