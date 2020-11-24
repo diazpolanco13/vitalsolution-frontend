@@ -1,7 +1,61 @@
 import React from "react";
-import Link from 'next/link'
+import Link from 'next/link';
+import { useFormik } from 'formik';
+import * as Yup from 'yup'
+import ButtonAlert from "../../components/ButtonAlert";
+import { useMutation, gql } from '@apollo/client';
+
+
+const AUTENTICAR_USUARIO = gql`
+  mutation autenticarUsuario($input: AutenticarInput) {
+    autenticarUsuario(input: $input) {
+      token
+    }
+  }
+`;
+
 
 const Login = () => {
+
+  //Mutation para autenticar usaurios en apollo
+  const [ autenticarUsuario ] = useMutation(AUTENTICAR_USUARIO)
+
+
+
+  const formik = useFormik({
+    initialValues: {
+      email: "segundo@segundo.com",
+      password: "qwerty",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("El email no es valido")
+        .required("El email es obligatorio"),
+      password: Yup.string().required("La Contraseña es obligatoria"),
+    }),
+    onSubmit: async valores  => {
+      console.log(valores)
+      const { email, password } = valores;
+      try {
+        
+        const { data } = await autenticarUsuario({
+          variables: {
+            input: {
+              email,
+              password,
+            },
+          },
+        });
+
+        console.log(data)
+
+      } catch (error) {
+          console.log(error)
+      }
+
+    }
+  });
+
   return (
     <>
       <div className="">
@@ -12,14 +66,19 @@ const Login = () => {
               src="https://firebasestorage.googleapis.com/v0/b/vital-solution-store.appspot.com/o/logo%3Dsinfondo.png?alt=media&token=1c72dbd3-e4e6-4bd1-9d43-4aabc88680da"
               alt="Workflow"
             />
-              <h2 className="mt-6 font-sans text-3xl font-extrabold text-center text-blue-800 ">
-              BIENVENIDO 
+            <h2 className="mt-6 font-sans text-3xl font-extrabold text-center text-blue-800 ">
+              BIENVENIDO
             </h2>
           </div>
 
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-              <form className="space-y-6" action="#" method="POST">
+              <form
+                className="space-y-6"
+                action="#"
+                method="POST"
+                onSubmit={formik.handleSubmit}
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -32,10 +91,20 @@ const Login = () => {
                       id="email"
                       type="email"
                       required
-                      className="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className={`block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none  ${
+                        formik.errors.email
+                          ? "focus:border-red-500 focus:ring-red-500"
+                          : "focus:border-blue-500 focus:ring-blue-500"
+                      }  sm:text-sm`}
                     />
                   </div>
                 </div>
+                {formik.touched.email && formik.errors.email && (
+                  <ButtonAlert error={formik.errors.email} />
+                )}
 
                 <div>
                   <label
@@ -49,16 +118,28 @@ const Login = () => {
                       id="password"
                       type="password"
                       required
-                      className="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className={`block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none  ${
+                        formik.errors.password
+                          ? "focus:border-red-500 focus:ring-red-500"
+                          : "focus:border-blue-500 focus:ring-blue-500"
+                      }  sm:text-sm`}
                     />
                   </div>
                 </div>
+                {formik.touched.password && formik.errors.password && (
+                  <ButtonAlert error={formik.errors.password} />
+                )}
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <input
                       id="remember_me"
                       type="checkbox"
+                      value={formik.values.remember_me}
+                      onChange={formik.handleChange}
                       className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                     />
                     <label
@@ -107,7 +188,9 @@ const Login = () => {
                       href="#"
                       className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50"
                     >
-                      <span className="sr-only">Inicio de sesión con Facebook</span>
+                      <span className="sr-only">
+                        Inicio de sesión con Facebook
+                      </span>
                       <svg
                         className="w-5 h-5"
                         fill="currentColor"
@@ -128,7 +211,9 @@ const Login = () => {
                       href="#"
                       className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50"
                     >
-                      <span className="sr-only">Inicio de sesión con Twitter</span>
+                      <span className="sr-only">
+                        Inicio de sesión con Twitter
+                      </span>
                       <svg
                         className="w-5 h-5"
                         fill="currentColor"
@@ -145,7 +230,9 @@ const Login = () => {
                       href="#"
                       className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50"
                     >
-                      <span className="sr-only">Inicio de sesión con Google</span>
+                      <span className="sr-only">
+                        Inicio de sesión con Google
+                      </span>
                       <svg
                         className="w-5 h-5"
                         fill="currentColor"

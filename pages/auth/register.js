@@ -36,7 +36,7 @@ const register = () => {
             nombre: "juan",
             apellido: "pablo",
             email: "segundo@segundo.com",
-            password: "123456",
+            password: "qwerty",
         },
         validationSchema: Yup.object({
             nombre: Yup.string().required('El nombre es obligatorio'),
@@ -59,7 +59,7 @@ const register = () => {
                         }
                     }
                 });
-               
+               console.log(data)
                 //Usuario creado correctamente
                 Swal.fire({
                     // position: 'top-end',
