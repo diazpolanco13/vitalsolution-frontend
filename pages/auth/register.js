@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import ButtonAlert from '../../components/ButtonAlert';
 import { useMutation, gql } from '@apollo/client';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/router'
+
 
 const REGISTER = gql`
   mutation nuevoUsuario($input: UsuarioInput) {
@@ -18,11 +21,14 @@ const REGISTER = gql`
 
 const register = () => {
 
-    //Mutaron para crear nuevos usarios;
+    //Estate para el mensaje
+    const [mensaje, guardarMensaje] =  useState(null)
 
+    //Mutaron para crear nuevos usarios;
     const [ nuevoUsuario ] = useMutation(REGISTER)
 
-
+    //Routing
+    const router = useRouter()
     
     //Validacion del formulario
     const formik = useFormik({
@@ -44,32 +50,47 @@ const register = () => {
             
             try {
                 const { data } = await nuevoUsuario({
-                  variables: {
-                    input: {
-                      nombre,
-                      apellido,
-                      email,
-                      password,
+                    variables: {
+                        input: {
+                            nombre,
+                            apellido,
+                            email,
+                            password,
+                        }
                     }
-                  }
                 });
                
                 //Usuario creado correctamente
-
+                Swal.fire({
+                    // position: 'top-end',
+                    icon: 'success',
+                    title: `Bienvenido a Vital Solution`,
+                    showConfirmButton: false,
+                    timer: 3000
+                });
 
                 //Redirigir usuario para iniciar sesion
-
+                setTimeout(() => {
+                    router.push('/auth/login')
+                }, 3000);
                 
             } catch (error) {
-                console.log(error)
+                
+                Swal.fire({
+                    // position: 'top-end',
+                    icon: 'error',
+                    title: error.message,
+                    showConfirmButton: false,
+                    timer: 3000
+                  })
             }
         }
-    })
-
+    });
 
 
     return (
         <>
+
         <div className="">
           <div className="flex flex-col justify-center min-h-screen py-12 shadow-2xl bg-gradient-to-r from-teal-400 to-blue-500 bg-gray-50 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
