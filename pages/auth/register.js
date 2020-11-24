@@ -21,8 +21,6 @@ const REGISTER = gql`
 
 const register = () => {
 
-    //Estate para el mensaje
-    const [mensaje, guardarMensaje] =  useState(null)
 
     //Mutaron para crear nuevos usarios;
     const [ nuevoUsuario ] = useMutation(REGISTER)
@@ -59,7 +57,7 @@ const register = () => {
                         }
                     }
                 });
-               console.log(data)
+               
                 //Usuario creado correctamente
                 Swal.fire({
                     // position: 'top-end',

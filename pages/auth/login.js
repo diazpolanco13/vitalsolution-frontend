@@ -4,6 +4,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import ButtonAlert from "../../components/ButtonAlert";
 import { useMutation, gql } from '@apollo/client';
+import { useRouter } from "next/router";
+import Swal from "sweetalert2";
 
 
 const AUTENTICAR_USUARIO = gql`
@@ -20,8 +22,10 @@ const Login = () => {
   //Mutation para autenticar usaurios en apollo
   const [ autenticarUsuario ] = useMutation(AUTENTICAR_USUARIO)
 
+  //Routing
+  const router = useRouter()
 
-
+  //Validacion del formulario
   const formik = useFormik({
     initialValues: {
       email: "segundo@segundo.com",
@@ -47,10 +51,22 @@ const Login = () => {
           },
         });
 
-        console.log(data)
+        //Guardar token en el localStorage
+        const { token } = data.autenticarUsuario;
+
+        localStorage.setItem('token', token)
+        setTimeout(() => {
+          router.push('/dashboard')
+      }, 1500);
 
       } catch (error) {
-          console.log(error)
+        Swal.fire({
+          // position: 'top-end',
+          icon: 'error',
+          title: error.message,
+          showConfirmButton: false,
+          timer: 3000
+        })
       }
 
     }
