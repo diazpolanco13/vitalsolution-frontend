@@ -13,21 +13,22 @@ const SidebarDesktop = ( ) => {
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="flex flex-col w-64">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex flex-col h-0 flex-1">
-            <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
+          <div className="flex flex-col flex-1 h-0">
+            <div className="flex items-center flex-shrink-0 h-16 px-4 bg-gray-900">
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                className="w-auto h-8"
+                src="https://firebasestorage.googleapis.com/v0/b/vital-solution-store.appspot.com/o/logo-512x512.png?alt=media&token=e96eace5-d948-461d-96e6-eb5f9bde99b6"
                 alt="Workflow"
               />
+              <h1 className="ml-3 text-xl font-medium text-white">VITAL SOLUTION</h1>
             </div>
-            <div className="flex-1 flex flex-col overflow-y-auto">
-              <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
+            <div className="flex flex-col flex-1 overflow-y-auto">
+              <nav className="flex-1 px-2 py-4 space-y-1 bg-gray-800">
               <div
                   className={`${path === undefined && 'bg-gray-900'} group flex items-center px-2 py-2 text-sm font-medium text-white rounded-md `}
                 >
                     <svg
-                      className="mr-3 h-6 w-6 text-gray-300"
+                      className="w-6 h-6 mr-3 text-gray-300"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -50,7 +51,7 @@ const SidebarDesktop = ( ) => {
                 >
                   {/* Heroicon name: users */}
                   <svg
-                    className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300"
+                    className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-300"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -74,7 +75,7 @@ const SidebarDesktop = ( ) => {
                 >
                   {/* Heroicon name: folder */}
                   <svg
-                    className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300"
+                    className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-300"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -94,7 +95,7 @@ const SidebarDesktop = ( ) => {
                 >
                   {/* Heroicon name: calendar */}
                   <svg
-                    className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300"
+                    className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-300"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -113,7 +114,7 @@ const SidebarDesktop = ( ) => {
                 >
                   {/* Heroicon name: chart-bar */}
                   <svg
-                    className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300"
+                    className="w-6 h-6 mr-3 text-gray-400 group-hover:text-gray-300"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

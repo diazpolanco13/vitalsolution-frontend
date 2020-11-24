@@ -5,7 +5,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      gradientColorStops: ['active', 'group-hover'],
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 }
