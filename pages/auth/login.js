@@ -38,8 +38,9 @@ const Login = () => {
       password: Yup.string().required("La Contraseña es obligatoria"),
     }),
     onSubmit: async valores  => {
-      console.log(valores)
+
       const { email, password } = valores;
+      
       try {
         
         const { data } = await autenticarUsuario({
@@ -50,7 +51,8 @@ const Login = () => {
             },
           },
         });
-
+        //*Data el el return del objeto creado en la BD
+        
         //Guardar token en el localStorage
         const { token } = data.autenticarUsuario;
 

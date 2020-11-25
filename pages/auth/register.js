@@ -44,6 +44,7 @@ const register = () => {
             remember_me: Yup.string(),
         }),
         onSubmit: async valores => {
+          
             const { nombre, apellido, email, password } = valores;
             
             try {
@@ -54,13 +55,13 @@ const register = () => {
                             apellido,
                             email,
                             password,
-                        }
-                    }
+                        },
+                    },
                 });
+               //*Data el el return del objeto creado en la BD
                
-                //Usuario creado correctamente
+               //Usuario creado correctamente
                 Swal.fire({
-                    // position: 'top-end',
                     icon: 'success',
                     title: `Bienvenido a Vital Solution`,
                     showConfirmButton: false,
