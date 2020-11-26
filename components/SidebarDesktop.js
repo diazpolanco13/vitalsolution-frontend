@@ -15,6 +15,7 @@ const SidebarDesktop = ( { path } ) => {
           <div className="flex flex-col flex-1 h-0 ">
             <div className={`flex items-center flex-shrink-0 h-16 px-4 ${darkOn ? "bg-gray-800 " : "bg-white border-r border-b border-gray-200"} `}>
               <img
+                
                 className="w-auto h-8"
                 src="https://firebasestorage.googleapis.com/v0/b/vital-solution-store.appspot.com/o/logo-512x512.png?alt=media&token=e96eace5-d948-461d-96e6-eb5f9bde99b6"
                 alt="Workflow"

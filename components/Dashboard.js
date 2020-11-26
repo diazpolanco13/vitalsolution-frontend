@@ -4,13 +4,11 @@ import SearchBar from "./SearchBar";
 import SidebarDesktop from "./SidebarDesktop";
 import SidebarMovil from "./SidebarMovil";
 
-const Dashboard = ({ children, path }) => {
+const Dashboard = ({ children, path}) => {
+ 
   const [showSidebar, setShowSidebar] = useState(false);
   const [isOn, setIsOn] = useState(false);
-  const [darkOn, setDarkOn] = useState(
-    JSON.parse(localStorage.getItem('DarkMode'))
-  );
-
+  const [darkOn, setDarkOn] = useState(false);
 
   return (
     <>
@@ -32,7 +30,7 @@ const Dashboard = ({ children, path }) => {
             <SidebarDesktop path={path} />
 
             <div className="flex flex-col flex-1 w-0 overflow-hidden">
-              <SearchBar />
+              <SearchBar  />
               {children}
             </div>
           </div>

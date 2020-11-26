@@ -58,7 +58,7 @@ const Login = () => {
 
         localStorage.setItem('token', token)
         setTimeout(() => {
-          router.push('/dashboard')
+          router.push('/dashboard/panel')
       }, 1500);
 
       } catch (error) {

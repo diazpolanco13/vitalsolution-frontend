@@ -3,9 +3,8 @@ import { TransitionContext } from "../context/TransitionContext";
 import DarkMode from "./DarkMode";
 import DropDown from "./DropDown";
 
-const SearchBar = () => {
+const SearchBar = ( darkOn ) => {
   const { showSidebar, setShowSidebar } = useContext(TransitionContext);
-  const { darkOn } = useContext(TransitionContext);
 
 
   return (
@@ -66,7 +65,7 @@ const SearchBar = () => {
             </form>
           </div>
 
-          <DarkMode/>
+          <DarkMode />
 
           <div className="flex items-center ml-4 md:ml-6">
             <button className="p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

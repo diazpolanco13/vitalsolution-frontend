@@ -1,7 +1,31 @@
 import React from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { useQuery, gql } from '@apollo/client'
+
+const OBTENER_USUARIO = gql`
+  query obtenerUsuario {
+    obtenerUsuario {
+      id
+      nombre
+      apellido
+      email
+      telefono
+    }
+  }
+`;
+
 
 const DropDown = () => {
+
+  //query apolo
+  const { data, loagin, error } = useQuery(OBTENER_USUARIO)
+  
+  const { nombre } = data.obtenerUsuario;
+  const { apellido } = data.obtenerUsuario;
+  const { email } = data.obtenerUsuario;
+  console.log(nombre)
+  
+  
   return (
     <>
         <div className="relative ml-3">
@@ -42,10 +66,10 @@ const DropDown = () => {
                       <div>
                       <div className="px-4 py-3">
                           <p className="text-sm leading-5">
-                            <b>Carlos Diaz</b>
+                            {`${nombre} ${apellido}`}
                           </p>
                           <p className="text-xs font-medium leading-5 text-gray-900 truncate">
-                            diazpolanco13@gmail.com
+                            {`${email}`}
                           </p>
                         </div>
                         <Menu.Item>
