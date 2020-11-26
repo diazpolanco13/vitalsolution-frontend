@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
+import { TransitionContext } from "../context/TransitionContext";
+
+
+
+
 
 const DarkMode = () => {
+  
+  const { darkOn, setDarkOn } = useContext(TransitionContext);
+ 
+  
+  const handleDarkMode = () => {  
+    setDarkOn(!darkOn)
+    localStorage.setItem('DarkMode', JSON.stringify(!darkOn));
 
-    const [darkOn, setDarkOn] = useState(true)
+ };
 
+  
   return (
     <>
       {/* On: "bg-indigo-600", Off: "bg-gray-200" */}
@@ -14,7 +27,7 @@ const DarkMode = () => {
           }
         </h1>
         <button
-          onClick={() => setDarkOn(!darkOn)}
+          onClick={handleDarkMode}
           type="button"
           aria-pressed="false"
           className={`relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out ${darkOn ? "bg-blue-900" : "bg-gray-200"}  border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-500`}

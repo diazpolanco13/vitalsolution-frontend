@@ -5,10 +5,12 @@ import DropDown from "./DropDown";
 
 const SearchBar = () => {
   const { showSidebar, setShowSidebar } = useContext(TransitionContext);
+  const { darkOn } = useContext(TransitionContext);
+
 
   return (
     <>
-      <div className="relative z-10 flex flex-shrink-0 h-16 bg-white shadow">
+      <div className="relative z-10 flex flex-shrink-0 h-16 bg-white border-b border-gray-200 ">
         <button
           onClick={() => setShowSidebar(!showSidebar)}
           className="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
