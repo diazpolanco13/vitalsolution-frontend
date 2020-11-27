@@ -59,7 +59,7 @@ const Login = () => {
         localStorage.setItem('token', token)
         setTimeout(() => {
           router.push('/dashboard/panel')
-      }, 1500);
+      }, 1000);
 
       } catch (error) {
         Swal.fire({

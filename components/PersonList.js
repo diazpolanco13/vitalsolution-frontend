@@ -5,19 +5,19 @@ const PersonList = ({ nombre,   apellido,   documentoIndentidad,   telefono,   e
     <>
       <tbody className="bg-white divide-y divide-gray-200">
         <tr>
-          <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+          <td className="px-6 py-4 text-sm font-medium text-gray-900 border-r border-gray-200 whitespace-nowrap">
             {nombre} {apellido}
           </td>
-          <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+          <td className="px-6 py-4 text-sm text-gray-500 border-r border-gray-200 whitespace-nowrap">
             {`CIV-${documentoIndentidad}`}
           </td>
-          <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+          <td className="px-6 py-4 text-sm text-gray-500 border-r border-gray-200 whitespace-nowrap">
             {telefono}
           </td>
-          <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+          <td className="px-6 py-4 text-sm text-gray-500 border-r border-gray-200 whitespace-nowrap">
             {email}
           </td>
-          <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+          <td className="px-6 py-4 text-sm text-gray-500 border-r border-gray-200 whitespace-nowrap">
             {creado}
           </td>
           <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">

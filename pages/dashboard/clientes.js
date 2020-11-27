@@ -2,7 +2,7 @@ import React from "react";
 import Dashboard from "../../components/Dashboard";
 import { gql, useQuery } from "@apollo/client";
 import PersonList from "../../components/PersonList";
-
+import { useRouter } from 'next/router'
 
 
 const OBTENER_CLIENTES_USUARIOS = gql`
@@ -22,13 +22,19 @@ const OBTENER_CLIENTES_USUARIOS = gql`
 
 
 
-const path = () => {
+const Clientes = () => {
+  const router = useRouter();
   
+  //consulta a BD
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIOS);
-  
 
 
-  const { obtenerClientes } = data || { obtenerClientes: [] }
+  //Proteger que no accedamos a data antes de tener los resultados
+  if (loading) return null;
+
+
+  const { obtenerClientes } = data 
+  // const { obtenerClientes } = data || { obtenerClientes: [] }
   // const { obtenerClientes = [] } = data || {}
   
   
@@ -64,35 +70,35 @@ const path = () => {
                             <tr>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
                               >
                                 Nombres
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
                               >
                                 Identidad
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
                               >
                                 Telefono
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
                               >
                                 Email
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
                               >
                                 Fecha
                               </th>
-                              <td className="px-6 py-3 text-sm font-bold tracking-wider text-left text-gray-500 bg-gray-50">
+                              <td className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50">
                                 <a className="text-gray-600 hover:text-gray-900">
                                   Editar
                                 </a>
@@ -135,4 +141,4 @@ const path = () => {
   );
 };
 
-export default path;
+export default Clientes;

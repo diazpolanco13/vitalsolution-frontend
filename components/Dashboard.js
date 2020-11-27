@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { TransitionContext } from "../context/TransitionContext";
+// import PrivateRoute from "../router/PrivateRout";
 import SearchBar from "./SearchBar";
 import SidebarDesktop from "./SidebarDesktop";
 import SidebarMovil from "./SidebarMovil";
 
+
 const Dashboard = ({ children, path}) => {
- 
+
   const [showSidebar, setShowSidebar] = useState(false);
   const [isOn, setIsOn] = useState(false);
   const [darkOn, setDarkOn] = useState(false);

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { useQuery, gql } from '@apollo/client'
+import { useQuery, gql } from '@apollo/client';
+import { useRouter } from 'next/router';
+
+
+
 
 const OBTENER_USUARIO = gql`
   query obtenerUsuario {
@@ -17,15 +21,30 @@ const OBTENER_USUARIO = gql`
 
 const DropDown = () => {
 
+  const router = useRouter();
+
   //query apolo
-  const { data, loagin, error } = useQuery(OBTENER_USUARIO)
+  const { data, loading, error } = useQuery(OBTENER_USUARIO)
   
-  const { nombre } = data.obtenerUsuario;
-  const { apellido } = data.obtenerUsuario;
-  const { email } = data.obtenerUsuario;
-  console.log(nombre)
+  //Proteger que no accedamos a data antes de tener los resultados
+  if (loading) return null;
   
+  //Sino hay token y por ende no hay informacion enviar al login
+  if (!data.obtenerUsuario) {
+    router.push('/auth/login');
+  }
+
+  const { nombre } = data.obtenerUsuario || {};
+  const { apellido } = data.obtenerUsuario || {};
+  const { email } = data.obtenerUsuario || {};
   
+  //Cerrar Sesion - eliminar el token y enviar al login
+  const cerrarSesion = () => {
+    localStorage.removeItem('token')
+    router.push('/auth/login')
+  }
+
+
   return (
     <>
         <div className="relative ml-3">
@@ -109,12 +128,12 @@ const DropDown = () => {
                           {({ active }) => (
                             <a
                             //   onClick={handleLogout}
-                              href="/auth/login"
+                              onClick={ () => cerrarSesion()  }
                               className={`${
                                 active
                                   ? "bg-gray-100 text-gray-900"
                                   : "text-gray-700"
-                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left cursor-pointer`}
                               role="menuitem"
                             >
                               Salir

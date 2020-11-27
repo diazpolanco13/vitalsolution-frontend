@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export const Loading = () => {
+const Loading = () => {
   return (
     <>
+      <>
       <div className="w-full max-w-sm p-4 mx-auto border rounded-md shadow border-light-blue-300">
         <div className="flex space-x-4 animate-pulse">
           <div className="w-12 h-12 rounded-full bg-light-blue-400"></div>
@@ -16,5 +17,8 @@ export const Loading = () => {
         </div>
       </div>
     </>
-  );
-};
+    </>
+  )
+}
+
+export default Loading
