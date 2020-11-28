@@ -5,7 +5,7 @@ const ButtonAlert = ({ error }) => {
     return (
       <>
         {/* This example requires Tailwind CSS v2.0+ */}
-        <div className="p-4 rounded-md bg-red-50">
+        <div className="flex p-4 align-middle rounded-md bg-red-50 w-max justify-self-center ">
           <div className="flex">
             <div className="flex-shrink-0">
               {/* Heroicon name: check-circle */}

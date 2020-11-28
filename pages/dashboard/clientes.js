@@ -3,6 +3,7 @@ import Dashboard from "../../components/Dashboard";
 import { gql, useQuery } from "@apollo/client";
 import PersonList from "../../components/PersonList";
 import { useRouter } from 'next/router'
+import HeaderTable from "../../components/HeaderTable";
 
 
 const OBTENER_CLIENTES_USUARIOS = gql`
@@ -49,13 +50,9 @@ const Clientes = () => {
           >
             <div className="py-6">
               <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-                <h1 className="text-2xl font-semibold text-gray-900">
-                  Clientes
-                </h1>
-              </div>
-              <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
                 {/* Replace with your contesnt */}
 
+              <HeaderTable />
                 <div className="py-4">
                   {/* Cabecera de la table */}
 

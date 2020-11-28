@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
+import Loading from "./Loading";
 
 
 
@@ -24,19 +25,25 @@ const DropDown = () => {
   const router = useRouter();
 
   //query apolo
-  const { data, loading, error } = useQuery(OBTENER_USUARIO)
+  const { data, loading, error } = useQuery(OBTENER_USUARIO);
   
-  //Proteger que no accedamos a data antes de tener los resultados
-  if (loading) return null;
   
-  //Sino hay token y por ende no hay informacion enviar al login
-  if (!data.obtenerUsuario) {
-    router.push('/auth/login');
-  }
+  const cachedMutatedData = useMemo ( ( ) => {
+    if ( loading || error ) return null
 
-  const { nombre } = data.obtenerUsuario || {};
-  const { apellido } = data.obtenerUsuario || {};
-  const { email } = data.obtenerUsuario || {};
+    //Sino hay token y por ende no hay informacion enviar al login
+    if (!data.obtenerUsuario) {
+      router.push('/auth/login');
+    }
+
+    return data
+  } , [ loading , error , data ] )
+ 
+  if ( loading ) return <Loading />
+
+  const { nombre } = cachedMutatedData.obtenerUsuario || {};
+  const { apellido } = cachedMutatedData.obtenerUsuario || {};
+  const { email } = cachedMutatedData.obtenerUsuario || {};
   
   //Cerrar Sesion - eliminar el token y enviar al login
   const cerrarSesion = () => {

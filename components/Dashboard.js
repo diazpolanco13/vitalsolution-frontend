@@ -25,7 +25,7 @@ const Dashboard = ({ children, path}) => {
         }}
       >
         <div className="dark">
-          <div className="flex h-screen overflow-hidden bg-white dark:bg-gray-100">
+          <div className={`flex h-screen overflow-hidden ${darkOn ? "bg-gray-100" : "bg-gray-50"} `}>
             {/*  El componente <SidebarMovil/> se ocultara cuando la pantalla sea menor  a  768px (hidden md:flex)*/}
             <SidebarMovil />
             {/*  El componente <SidebarDesktop/> se mostrara cuando la pantalla sea mayor  a  768px (hidden md:flex)*/}
