@@ -79,41 +79,41 @@ const Clientes = () => {
                             <tr>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Foto
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Nombres
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Identidad
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Telefono
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Email
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Fecha
                               </th>
-                              <td className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50">
+                              <td className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50">
                                 <a className="text-gray-600 hover:text-gray-900">
                                   Editar
                                 </a>
