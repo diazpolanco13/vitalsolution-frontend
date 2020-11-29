@@ -1,11 +1,61 @@
 import React from "react";
 import Swal from "sweetalert2";
+import { gql, useMutation } from '@apollo/client'
+
+const ELIMINAR_CLIENTE = gql`
+    mutation  eliminarCliente($id: ID!){
+      eliminarCliente(id: $id)
+    }
+`;
+
+const OBTENER_CLIENTES_USUARIOS = gql`
+      query obtenerClientes {
+        obtenerClientes {
+          id
+          nombre
+          apellido
+          documentoIndentidad
+          telefono
+          email
+          vendedor
+          creado
+          direccion {
+            estado
+            lugar
+            municipio
+          }
+          imagen
+          profesion
+          planAfiliacion {
+            ofertas
+            recordatorio
+            suscripcion
+          }
+         }
+      }
+`;
 
 const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email, creado, imagen }) => {
   
+  //mutation para eliminar confirarEliminarCliente y limpieza del cache
+  const [eliminarCliente] = useMutation(ELIMINAR_CLIENTE, {
+    update(cache) {
+      //obtener una copia de los clientes
+      const { obtenerClientes } = cache.readQuery({ query: OBTENER_CLIENTES_USUARIOS });
+
+      //Rescribir el cache
+      cache.writeQuery({
+        query: OBTENER_CLIENTES_USUARIOS,
+        data: {
+          obtenerClientes : obtenerClientes.filter( clienteActual => clienteActual.id !== id)
+        }
+      })
+    }
+  });
+  
+  
   //Elimiar 1 cliente
   const confirarEliminarCliente = (id) => {
-    
 
     Swal.fire({
       title: '¿Estas seguro?',
@@ -16,16 +66,27 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, Eliminar',
       cancelButtonText: 'No, Cancelar!',
-    }).then((result) => {
+    }).then( async (result) => {
       if (result.isConfirmed) {
         
-        console.log('Eliminando a este cliente', id)
-
+      try {
+        //Eliminar por ID
+        const { data } = await eliminarCliente({
+          variables: {
+            id,
+          }
+        });
+        
+        //Mostrar una alerta
         Swal.fire(
           'Eliminado!',
-          'El registro fue eliminado exitosamente.',
+          data.eliminarCliente,
           'success'
         )
+      } catch (error) {
+        console.log(error)
+      }
+
       }
     })
   }
@@ -68,7 +129,7 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
             {creado}
           </td>
           <td className="w-1/6 text-sm font-medium text-center place-self-stretch">
-            <button type="button" class="uppercase inline-flex items-center mx-2 px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="button" className="uppercase inline-flex items-center mx-2 px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Editar
             </button>
             <button
