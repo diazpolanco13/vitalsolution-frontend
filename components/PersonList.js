@@ -1,6 +1,36 @@
 import React from "react";
+import Swal from "sweetalert2";
 
-const PersonList =  ({ nombre,   apellido,   documentoIndentidad,   telefono,   email,   creado, imagen}) => {
+const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email, creado, imagen }) => {
+  
+  //Elimiar 1 cliente
+  const confirarEliminarCliente = (id) => {
+    
+
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "Tu no podras revertir esta acción!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, Eliminar',
+      cancelButtonText: 'No, Cancelar!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        console.log('Eliminando a este cliente', id)
+
+        Swal.fire(
+          'Eliminado!',
+          'El registro fue eliminado exitosamente.',
+          'success'
+        )
+      }
+    })
+  }
+
+
   return (
     <>
       <tbody className="bg-white divide-y divide-gray-200 table-fixed">
@@ -22,7 +52,7 @@ const PersonList =  ({ nombre,   apellido,   documentoIndentidad,   telefono,   
               )
             }
           </td>
-          <td className="text-sm font-medium text-center text-gray-900 border-r border-gray-200  whitespace-nowrap">
+          <td className="text-sm font-medium text-center text-gray-900 border-r border-gray-200 whitespace-nowrap">
             {nombre} {apellido}
           </td>
           <td className="text-sm text-center text-gray-500 border-r border-gray-200 whitespace-nowrap">
@@ -41,7 +71,10 @@ const PersonList =  ({ nombre,   apellido,   documentoIndentidad,   telefono,   
             <button type="button" class="uppercase inline-flex items-center mx-2 px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Editar
             </button>
-            <button type="button" class="uppercase inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button
+              type="button"
+              onClick={() => confirarEliminarCliente(id)}
+              className="uppercase inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Eliminar
             </button>
           </td>

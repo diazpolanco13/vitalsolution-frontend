@@ -125,6 +125,7 @@ const Clientes = () => {
                               obtenerClientes.map((res) => (
                                   <PersonList
                                     key={res.id}
+                                    id={res.id}
                                     imagen={res.imagen}
                                     nombre={res.nombre}
                                     apellido={res.apellido}
