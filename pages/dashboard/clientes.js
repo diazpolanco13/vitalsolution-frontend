@@ -7,18 +7,30 @@ import HeaderTable from "../../components/HeaderTable";
 
 
 const OBTENER_CLIENTES_USUARIOS = gql`
-  query obtenerClientes {
-    obtenerClientes {
-      id
-      nombre
-      apellido
-      documentoIndentidad
-      telefono
-      email
-      vendedor
-      creado
-    }
-  }
+      query obtenerClientes {
+        obtenerClientes {
+          id
+          nombre
+          apellido
+          documentoIndentidad
+          telefono
+          email
+          vendedor
+          creado
+          direccion {
+            estado
+            lugar
+            municipio
+          }
+          imagen
+          profesion
+          planAfiliacion {
+            ofertas
+            recordatorio
+            suscripcion
+          }
+         }
+      }
 `;
 
 
@@ -28,7 +40,7 @@ const Clientes = () => {
   
   //consulta a BD
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIOS);
-
+  console.log(data)
 
   //Proteger que no accedamos a data antes de tener los resultados
   if (loading) return null;

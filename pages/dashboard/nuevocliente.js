@@ -30,17 +30,32 @@ const NUEVO_CLIENTE = gql`
       }
 `;
 
-  const OBTENER_USUARIO = gql`
-    query obtenerUsuario {
-      obtenerUsuario {
-        id
-        nombre
-        apellido
-        email
-        telefono
+const OBTENER_CLIENTES_USUARIOS = gql`
+      query obtenerClientes {
+        obtenerClientes {
+          id
+          nombre
+          apellido
+          documentoIndentidad
+          telefono
+          email
+          vendedor
+          creado
+          direccion {
+            estado
+            lugar
+            municipio
+          }
+          imagen
+          profesion
+          planAfiliacion {
+            ofertas
+            recordatorio
+            suscripcion
+          }
+         }
       }
-    }
-  `;
+`;
 
 
 const NuevoCliente = () => {
@@ -56,11 +71,11 @@ const NuevoCliente = () => {
 
       
       //Obtener el objeto de cache que deseamos actualizar
-      const { obtenerClientes } = cache.readQuery({ query: OBTENER_USUARIO });
+      const { obtenerClientes } = cache.readQuery({ query: OBTENER_CLIENTES_USUARIOS });
       
       //Rescribimos el cache (el cahe no se debe modificar, mas si rescribir)
       cache.writeQuery({
-        query: OBTENER_USUARIO, //cual se modifica? 
+        query: OBTENER_CLIENTES_USUARIOS, //cual se modifica? 
         data: {
           obtenerClientes : [...obtenerClientes, nuevoCliente] // Con que se modifica
         }
