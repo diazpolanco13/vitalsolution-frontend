@@ -36,7 +36,6 @@ const OBTENER_CLIENTES_USUARIOS = gql`
 
 
 const Clientes = () => {
-  const router = useRouter();
   
   //consulta a BD
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIOS);

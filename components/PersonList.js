@@ -1,6 +1,8 @@
 import React from "react";
 import Swal from "sweetalert2";
 import { gql, useMutation } from '@apollo/client'
+import Router from 'next/router';
+
 
 const ELIMINAR_CLIENTE = gql`
     mutation  eliminarCliente($id: ID!){
@@ -91,6 +93,14 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
     })
   }
 
+//Editar clientes
+  
+  const ediarCliente = () => {
+    Router.push({
+      pathname: '/editarcliente/[id]',
+      query: { id }
+    })  
+}
 
   return (
     <>
@@ -128,15 +138,18 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
           <td className="text-sm text-center text-gray-500 whitespace-normal border-r border-gray-200">
             {creado}
           </td>
-          <td className="w-1/6 text-sm font-medium text-center place-self-stretch">
-            <button type="button" className="uppercase inline-flex items-center mx-2 px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Editar
+          <td className="w-1/6 text-sm font-medium text-center min-w-min">
+            <button
+              type="button"
+              onClick={() => ediarCliente()}
+              className="uppercase inline-flex items-center w-20 text-center py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-1">
+              <span className="w-full text-center"> modificar </span>
             </button>
             <button
               type="button"
-              onClick={() => confirarEliminarCliente(id)}
-              className="uppercase inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Eliminar
+              onClick={() => confirarEliminarCliente()}
+              className="uppercase ml-1 inline-flex items-center w-20 text-center py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <span className="w-full text-center">Eliminar </span>
             </button>
           </td>
         </tr>
