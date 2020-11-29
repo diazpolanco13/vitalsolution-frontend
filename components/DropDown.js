@@ -27,23 +27,19 @@ const DropDown = () => {
   //query apolo
   const { data, loading, error } = useQuery(OBTENER_USUARIO);
   
-  
-  const cachedMutatedData = useMemo ( ( ) => {
-    if ( loading || error ) return null
+  if (loading || error) return null
 
     //Sino hay token y por ende no hay informacion enviar al login
     if (!data.obtenerUsuario) {
       router.push('/auth/login');
     }
-
-    return data
-  } , [ loading , error , data ] )
  
+  
   if ( loading ) return <Loading />
 
-  const { nombre } = cachedMutatedData.obtenerUsuario || {};
-  const { apellido } = cachedMutatedData.obtenerUsuario || {};
-  const { email } = cachedMutatedData.obtenerUsuario || {};
+  const { nombre } = data.obtenerUsuario || {};
+  const { apellido } = data.obtenerUsuario || {};
+  const { email } = data.obtenerUsuario || {};
   
   //Cerrar Sesion - eliminar el token y enviar al login
   const cerrarSesion = () => {
@@ -125,7 +121,7 @@ const DropDown = () => {
                               } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
                               role="menuitem"
                             >
-                              Configuracion
+                              Configuración
                             </a>
                           )}
                         </Menu.Item>

@@ -2,21 +2,18 @@ import React, { useContext, useEffect } from "react";
 import { TransitionContext } from "../context/TransitionContext";
 
 
-
-
-
 const DarkMode = () => {
   
   const { darkOn, setDarkOn } = useContext(TransitionContext);
  
-  
   const handleDarkMode = () => {  
     setDarkOn(!darkOn)
-    localStorage.setItem('DarkMode', JSON.stringify(!darkOn));
-
- };
-
+    localStorage.setItem('DarkMode', JSON.parse(!darkOn));
+    const storage = JSON.parse(localStorage.getItem("DarkMode"))
+    console.log(storage)
+  };
   
+
   return (
     <>
       {/* On: "bg-indigo-600", Off: "bg-gray-200" */}

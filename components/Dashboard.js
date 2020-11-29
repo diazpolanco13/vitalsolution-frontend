@@ -6,11 +6,12 @@ import SidebarDesktop from "./SidebarDesktop";
 import SidebarMovil from "./SidebarMovil";
 
 
-const Dashboard = ({ children, path}) => {
-
+const Dashboard = ({ children, path }) => {
+  
   const [showSidebar, setShowSidebar] = useState(false);
   const [isOn, setIsOn] = useState(false);
   const [darkOn, setDarkOn] = useState(false);
+  
 
   return (
     <>

@@ -40,7 +40,7 @@ const Clientes = () => {
   
   //consulta a BD
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIOS);
-  console.log(data)
+  // console.log(data)
 
   //Proteger que no accedamos a data antes de tener los resultados
   if (loading) return null;
@@ -77,6 +77,12 @@ const Clientes = () => {
                           
                           <thead>
                             <tr>
+                              <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
+                              >
+                                Foto
+                              </th>
                               <th
                                 scope="col"
                                 className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 border-r bg-gray-50"
@@ -119,6 +125,7 @@ const Clientes = () => {
                               obtenerClientes.map((res) => (
                                   <PersonList
                                     key={res.id}
+                                    imagen={res.imagen}
                                     nombre={res.nombre}
                                     apellido={res.apellido}
                                     documentoIndentidad={res.documentoIndentidad}

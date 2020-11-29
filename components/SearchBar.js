@@ -70,7 +70,7 @@ const SearchBar = ( darkOn ) => {
           <div className="flex items-center ml-4 md:ml-6">
             <button className="p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span className="sr-only">View notifications</span>
-              {/* Heroicon name: bell */}
+              
               <svg
                 className="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"

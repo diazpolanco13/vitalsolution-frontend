@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Dashboard from "../../components/Dashboard";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql, useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
+import { fileUpload } from "../../helpers/fileUpload";
+import Swal from "sweetalert2";
 
 const NUEVO_CLIENTE = gql`
     mutation nuevoCliente($input: ClienteInput){
@@ -62,7 +64,7 @@ const NuevoCliente = () => {
 
   //*---------------------- MUTATION PARA CREAR NUEVO CLIENTE --------------------
   const router = useRouter();
-  
+  const [imagenUrl, setImagenUrl] = useState('')
   // Mutation para crear nuevos clientes, y funcion para actualizar el cache de la app
   //   Mutation para crear nuevos clientes
     const [ nuevoCliente ] = useMutation(NUEVO_CLIENTE, {
@@ -129,13 +131,12 @@ const NuevoCliente = () => {
     }),
     //3- Enviamos el formulario al Backend
     onSubmit: async valores => {
-      const { imagen, nombre, apellido, documentoIndentidad, profesion, email, telefono, direccion, planAfiliacion } = valores;   
-
+      let {  nombre, apellido, documentoIndentidad, profesion, email, telefono, direccion, planAfiliacion } = valores;   
         try {
           const { data } = await nuevoCliente({
           variables: {
             input: {
-              imagen,
+              imagen: imagenUrl,
               nombre,
               apellido,
               email,
@@ -147,15 +148,34 @@ const NuevoCliente = () => {
             }
           }
         });
-        console.log(data.nuevoCliente)
+        // console.log(data.nuevoCliente)
 
         router.push('/dashboard/clientes') //redireccionar hacia clientes
 
       } catch (error) {
-        console.log( error)
+        Swal.fire({
+          // position: 'top-end',
+          icon: 'error',
+          title: error.message,
+          showConfirmButton: false,
+          timer: 3000
+        })
       }
     },
   });
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      const fileUrl = await fileUpload(file); //Helper para subir imagenes a cloudinary
+      setImagenUrl(fileUrl)
+    }
+  }
+  const handleCancelNewUser = () => {
+    setImagenUrl('')
+    router.push('/dashboard/clientes') //redireccionar hacia clientes
+
+  }
 
   return (
     <>
@@ -184,40 +204,13 @@ const NuevoCliente = () => {
                     </div>
 
                     <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                                       
-
-                      <div className="sm:col-span-6">
-                        <label
-                          htmlFor="photo"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Imagen
-                        </label>
-                        <div className="flex items-center mt-2">
-                          <span className="w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
-                            <svg
-                              className="w-full h-full text-gray-300"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                          </span>
-                          <button
-                            type="button"
-                            className="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                          >
-                            Cambiar
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className="sm:col-span-6">
+                    
+                      <div className="sm:col-span-3">
                         <label
                           htmlFor="cover_photo"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          Foto de cubierta
+                          Cargar foto
                         </label>
                         <div className="flex justify-center px-6 pt-5 pb-6 mt-2 border-2 border-gray-300 border-dashed rounded-md">
                           <div className="space-y-1 text-center">
@@ -237,15 +230,18 @@ const NuevoCliente = () => {
                             </svg>
                             <div className="flex text-sm text-gray-600">
                               <label
-                                htmlFor="file-upload"
-                                className="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                htmlFor="imagen"
+                                className="relative font-medium text-indigo-600 bg-gray-100 rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                               >
-                                <span>Cargar un archivo</span>
+                                <span className="bg-gray-100">Cargar un archivo</span>
                                 <input
-                                  id="file-upload"
-                                  name="file-upload"
+                                  id="imagen"
                                   type="file"
                                   className="sr-only"
+                                  value={formik.values.imagen}
+                                  // onChange={formik.handleChange}
+                                  onChange={handleFileChange}
+                                  onBlur={formik.handleBlur}
                                 />
                               </label>
                               <p className="pl-1">o arrastrar y soltar</p>
@@ -254,6 +250,33 @@ const NuevoCliente = () => {
                               PNG, JPG, GIF hasta 10MB
                             </p>
                           </div>
+                        </div>
+                      </div>
+
+                      <div className=" sm:col-span-3">
+                        <label
+                          htmlFor="photo"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Imagen
+                        </label>
+                        <div className="flex items-start justify-center h-full p-2 mt-1">
+                          {
+                            (imagenUrl === "") ? (
+                              <span className="flex items-start overflow-hidden bg-gray-100 rounded-md w-28">
+                                <svg
+                                  className="flex items-center w-full h-full text-gray-300"
+                                  fill="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                              </span>
+                            ) : (
+                              <img className="flex w-32 h-32 rounded-md " src={imagenUrl} alt="" />
+                            )
+                          }
+                         
                         </div>
                       </div>
                     </div>
@@ -294,6 +317,13 @@ const NuevoCliente = () => {
                               onBlur={formik.handleBlur}
                             />
                         </div>
+                          {
+                              formik.touched.nombre && formik.errors.nombre ? (
+                              <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
+                             {formik.errors.nombre}
+                              </span>
+                            ) : null
+                          }
                       </div>
 
                       <div className="sm:col-span-3">
@@ -319,8 +349,14 @@ const NuevoCliente = () => {
                               onBlur={formik.handleBlur}
                             />
                         </div>
+                        {
+                              formik.touched.apellido && formik.errors.apellido ? (
+                              <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
+                             {formik.errors.apellido}
+                              </span>
+                            ) : null
+                          }
                       </div>
-                      
                       
                       <div className="sm:col-span-3">
                         <label
@@ -345,6 +381,13 @@ const NuevoCliente = () => {
                               onBlur={formik.handleBlur}
                             />
                         </div>
+                        {
+                              formik.touched.documentoIndentidad && formik.errors.documentoIndentidad ? (
+                              <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
+                             {formik.errors.documentoIndentidad}
+                              </span>
+                            ) : null
+                          }
                       </div>
 
                       <div className="sm:col-span-3">
@@ -370,6 +413,13 @@ const NuevoCliente = () => {
                               onBlur={formik.handleBlur}
                             />
                         </div>
+                          {
+                              formik.touched.telefono && formik.errors.telefono ? (
+                              <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
+                             {formik.errors.telefono}
+                              </span>
+                            ) : null
+                          }
                       </div>
 
                       
@@ -396,6 +446,13 @@ const NuevoCliente = () => {
                               onBlur={formik.handleBlur}
                             />
                         </div>
+                        {
+                              formik.touched.email && formik.errors.email ? (
+                              <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
+                             {formik.errors.email}
+                              </span>
+                            ) : null
+                          }
                       </div>
 
                       <div className="sm:col-span-3">
@@ -421,6 +478,7 @@ const NuevoCliente = () => {
                               onBlur={formik.handleBlur}
                             />
                         </div>
+                        
                       </div>
                       <div className="col-start-1 sm:col-span-4">
                         <label
@@ -625,14 +683,15 @@ const NuevoCliente = () => {
                 <div className="pt-5">
                   <div className="flex justify-end">
                   <button
-                        type="button"
+                      type="button"
+                      onClick={handleCancelNewUser}
                         className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         Cancelar
                       </button>
                       <button
                         type="submit"
-                        className="inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                        className="inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md shadow-sm disable hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                       >
                         Guardar
                       </button>
