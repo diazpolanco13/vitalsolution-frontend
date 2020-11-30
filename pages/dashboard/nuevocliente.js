@@ -150,7 +150,8 @@ const NuevoCliente = () => {
         });
         // console.log(data.nuevoCliente)
 
-        router.push('/dashboard/clientes') //redireccionar hacia clientes
+        //redireccionar hacia clientes
+        router.push('/dashboard/clientes') 
 
       } catch (error) {
         Swal.fire({

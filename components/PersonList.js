@@ -142,13 +142,13 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
             <button
               type="button"
               onClick={() => ediarCliente()}
-              className="uppercase inline-flex items-center w-20 text-center py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-1">
+              className="inline-flex items-center w-20 py-1 mr-1 text-xs font-medium text-center text-white uppercase bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span className="w-full text-center"> modificar </span>
             </button>
             <button
               type="button"
               onClick={() => confirarEliminarCliente()}
-              className="uppercase ml-1 inline-flex items-center w-20 text-center py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              className="inline-flex items-center w-20 py-1 ml-1 text-xs font-medium text-center text-white uppercase bg-red-600 border border-transparent rounded shadow-sm md:w-20 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <span className="w-full text-center">Eliminar </span>
             </button>
           </td>

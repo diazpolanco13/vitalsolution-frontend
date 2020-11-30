@@ -112,7 +112,7 @@ const Clientes = () => {
                               >
                                 Fecha
                               </th>
-                              <td className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50">
+                              <td className="w-40 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50">
                                 <a className="text-gray-600 hover:text-gray-900">
                                   Editar
                                 </a>
