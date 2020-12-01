@@ -112,22 +112,24 @@ const EditarCliente = () => {
     
     let { estado, municipio, lugar } = direccion;
     let { ofertas, recordatorio, suscripcion } = planAfiliacion;
-  
-//! Deuda Tenica :'(
+    
+
+//! Deuda tecnica :'(
     if (imagen && (imagenUrl === "")) {
       imagen = imagen
-      // console.log('Me ejecute porque no cargaron una nueva foto')
+      // console.log('No realizaron cambios de foto de perfil')
     } else if (imagen && (imagenUrl !== "")) {
       imagen = imagenUrl
-      // console.log('En el formulario venia una foto, pero como el estate traia foto, la reasigne porque cargaron una nueva foto')
+      // console.log('Renovaron una imagen de perfil existente')
     } else if ((imagen === "" && imagenUrl === "")) {
       imagen = imagen
-      // console.log('El suario venia sin foto, no le agregaron foto, no le mandamos anda')
+      // console.log('No existia imagen ni vieja ni nueva y no se hizo nada')
     } else if (imagen === "" &&  imagenUrl) {
       imagen = imagenUrl
-      // console.log('El suario venia sin foto, pero le agregaron una foto, entonces la reasignamos')
+      // console.log('No existia imagen de perfil, se agrego la nueva')
     }
 
+    
     try {
       const { data } = await actualizarCliente({
         variables: {

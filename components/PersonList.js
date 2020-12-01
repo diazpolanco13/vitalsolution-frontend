@@ -105,8 +105,8 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
   return (
     <>
       <tbody className="bg-white divide-y divide-gray-200 table-fixed">
-        <tr className="">
-          <td className="flex items-center justify-center text-sm font-medium text-gray-900 whitespace-normal border-r border-gray-200">
+        <tr className="table-fixed">
+          <td className="flex items-center justify-center w-full text-sm font-medium text-gray-900 whitespace-normal border-r border-gray-200">
             {
               (imagen == "") ? (
                 <span className="w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
@@ -127,7 +127,7 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
             {nombre} {apellido}
           </td>
           <td className="text-sm text-center text-gray-500 border-r border-gray-200 whitespace-nowrap">
-            {`CIV-${documentoIndentidad}`}
+            {`  ${documentoIndentidad}`}
           </td>
           <td className="text-sm text-center text-gray-500 border-r border-gray-200 whitespace-nowrap">
             {telefono}
@@ -138,17 +138,17 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
           <td className="text-sm text-center text-gray-500 whitespace-normal border-r border-gray-200">
             {creado}
           </td>
-          <td className="w-1/6 text-sm font-medium text-center min-w-min">
+          <td className="text-sm font-medium text-center w-44 min-w-44 ">
             <button
               type="button"
               onClick={() => ediarCliente()}
-              className="inline-flex items-center w-20 py-1 mr-1 text-xs font-medium text-center text-white uppercase bg-indigo-600 border border-transparent rounded shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <span className="w-full text-center"> modificar </span>
+              className="inline-flex items-center w-16 text-xs font-medium text-center text-white uppercase bg-blue-600 border border-transparent rounded shadow-sm lg:w-20 xl:ml-1 xl:py-1 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              <span className="w-full text-center xs:p-1"> modificar </span>
             </button>
             <button
               type="button"
-              onClick={() => confirarEliminarCliente()}
-              className="inline-flex items-center w-20 py-1 ml-1 text-xs font-medium text-center text-white uppercase bg-red-600 border border-transparent rounded shadow-sm md:w-20 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              onClick={() => confirarEliminarCliente(id)}
+              className="inline-flex items-center w-16 text-xs font-medium text-center text-white uppercase bg-red-600 border border-transparent rounded shadow-sm lg:w-20 xl:ml-1 xl:py-1 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             <span className="w-full text-center">Eliminar </span>
             </button>
           </td>
