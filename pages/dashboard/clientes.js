@@ -45,8 +45,7 @@ const Clientes = () => {
   if (loading) return null;
 
 
-  const { obtenerClientes } = data 
-  // const { obtenerClientes } = data || { obtenerClientes: [] }
+  const { obtenerClientes } = data || { obtenerClientes: [] }
   // const { obtenerClientes = [] } = data || {}
   
   
@@ -63,7 +62,7 @@ const Clientes = () => {
               <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
                 {/* Replace with your contesnt */}
 
-              <HeaderTable />
+              <HeaderTable titulo={'Clientes'} />
                 <div className="py-4">
                   {/* Cabecera de la table */}
 

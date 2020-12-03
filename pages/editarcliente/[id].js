@@ -129,7 +129,7 @@ const EditarCliente = () => {
       // console.log('No existia imagen de perfil, se agrego la nueva')
     }
 
-    
+ //?Enviar los valores actualizados al backend   
     try {
       const { data } = await actualizarCliente({
         variables: {
@@ -190,21 +190,11 @@ const EditarCliente = () => {
           enableReinitialize
           initialValues={obtenerCliente}
           onSubmit={(valores) => {
-            console.log('Log de valores', valores)
-            
-
-
-            actualizarInformacionDeClientes(valores)
-            
-            
-            
+            actualizarInformacionDeClientes(valores);
+               
           }}
           >
           {(props) => {
-            // console.log(props);
-                  // if (props.values.imagen === "") {
-                  //   setImagenUrl(props.values.imagen)
-                  // }
 
             return (
               <main

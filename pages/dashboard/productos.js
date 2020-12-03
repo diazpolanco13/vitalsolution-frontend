@@ -1,10 +1,32 @@
 import React from "react";
-
 import Dashboard from "../../components/Dashboard";
+import { gql, useQuery } from "@apollo/client";
+import HeaderTable from "../../components/HeaderTable";
+import ProducList from "../../components/ProductList";
+
+const OBTENER_PRODUCTOS = gql`
+  query obtenerProductos {
+    obtenerProductos {
+      id
+      imagen
+      nombre
+      descripcion
+      existencia
+      precio
+      moneda
+      creado
+    }
+  }
+`;
 
 const Productos = () => {
+  //? Consultar los productos
+  const { data, loading, error } = useQuery(OBTENER_PRODUCTOS);
 
- 
+  const { obtenerProductos } = data || { obtenerProductos: [] };
+
+  // console.log(obtenerProductos);
+
   return (
     <>
       <Dashboard path="productos">
@@ -14,14 +36,82 @@ const Productos = () => {
         >
           <div className="py-6">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-              <h1 className="text-2xl font-semibold text-gray-900">Productos</h1>
-            </div>
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               {/* Replace with your content */}
+              <HeaderTable titulo={"Productos"} />
               <div className="py-4">
-                <div className="border-4 border-gray-200 border-dashed rounded-lg h-96"></div>
+                {/* Cabecera de la table */}
+                <div className="flex flex-col">
+                  <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                      <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                        <table className="min-w-full divide-y divide-gray-200">
+                          <thead>
+                            <tr>
+                              <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                              >
+                                Imagen
+                              </th>
+                              <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                              >
+                                Nombre
+                              </th>
+                              <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                              >
+                                Descripción
+                              </th>
+                              <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                              >
+                                Existencia
+                              </th>
+                              <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                              >
+                                Precio
+                              </th>
+                              {/* <th
+                                scope="col"
+                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                              >
+                                Fecha
+                              </th> */}
+                              <th
+                               scope="col"
+                                className="w-40 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50">
+                                <a className="text-gray-600 hover:text-gray-900">
+                                  Editar
+                                </a>
+                              </th>
+                            </tr>
+                          </thead>
+                          {obtenerProductos.map((prod) => (
+                            <ProducList
+                              key={prod.id}
+                              id={prod.id}
+                              imagen={prod.imagen}
+                              nombre={prod.nombre}
+                              descripcion={prod.descripcion}
+                              existencia={prod.existencia}
+                              precio={prod.precio}
+                              moneda={prod.moneda}
+                              // creado={prod.creado}
+                            />
+                          ))}
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* /End replace */}
               </div>
-              {/* /End replace */}
             </div>
           </div>
         </main>
