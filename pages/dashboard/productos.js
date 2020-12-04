@@ -49,46 +49,44 @@ const Productos = () => {
                             <tr>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                                className="w-1/6 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Imagen
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                                className="w-1/6 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase whitespace-normal border-r bg-gray-50"
                               >
                                 Nombre
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                                className="w-1/4 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Descripción
                               </th>
                               <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                                className="w-1/12 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
                                 Existencia
                               </th>
                               <th
-                                scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
-                              >
+                               scope="col"
+                               className="w-1/12 px-12 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                             >
                                 Precio
                               </th>
-                              {/* <th
+                              <th
                                 scope="col"
-                                className="px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
+                                className="w-1/12 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50"
                               >
-                                Fecha
-                              </th> */}
+                                Modificar
+                              </th>
                               <th
                                scope="col"
-                                className="w-40 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50">
-                                <a className="text-gray-600 hover:text-gray-900">
-                                  Editar
-                                </a>
+                                className="w-1/12 px-6 py-3 text-sm font-bold tracking-wider text-center text-gray-500 uppercase border-r bg-gray-50">
+                                Eliminar
                               </th>
                             </tr>
                           </thead>

@@ -10,7 +10,7 @@ const Dashboard = ({ children, path }) => {
   
   const [showSidebar, setShowSidebar] = useState(false);
   const [isOn, setIsOn] = useState(false);
-  const [darkOn, setDarkOn] = useState(false);
+  const [darkOn, setDarkOn] = useState(true);
   
 
   return (
