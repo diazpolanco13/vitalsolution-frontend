@@ -150,7 +150,7 @@ const NuevoCliente = () => {
         });
         // console.log(data.nuevoCliente)
 
-        //redireccionar hacia clientes
+        //? Redireccionar hacia clientes
         router.push('/dashboard/clientes') 
 
       } catch (error) {
@@ -502,6 +502,7 @@ const NuevoCliente = () => {
                               onChange={formik.handleChange}
                               onBlur={formik.handleBlur}
                             >
+                              <option>Seleccione un estado</option>
                               <option>Amazonas</option>
                               <option>Anzoátegui</option>
                               <option>Apure</option>
