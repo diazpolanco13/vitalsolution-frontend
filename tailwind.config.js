@@ -7,7 +7,8 @@ module.exports = {
   variants: {
     extend: {
       gradientColorStops: ['active', 'group-hover'],
-      textOpacity: ['dark']
+      textOpacity: ['dark'],
+      animation: ['responsive', 'motion-safe', 'motion-reduce']
     },
   },
   plugins: [require('@tailwindcss/forms')],

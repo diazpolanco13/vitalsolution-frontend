@@ -1,9 +1,11 @@
 import React from 'react'
+import Sping from '../components/Sping'
+
 
 const index = () => {
   return (
     <>
-      <h1>Hola Talwinianos</h1>
+      <Sping/>
     </>
   )
 }

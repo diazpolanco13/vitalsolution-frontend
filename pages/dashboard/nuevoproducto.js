@@ -23,17 +23,45 @@ const NUEVO_PRODUCTO = gql`
     }
 `;
 
+const OBTENER_PRODUCTOS = gql`
+  query obtenerProductos {
+    obtenerProductos {
+      id
+      imagen
+      nombre
+      descripcion
+      existencia
+      precio
+      moneda
+      creado
+    }
+  }
+`;
+
 const NuevoProducto = () => {
   //*---------------------- MUTATION PARA CREAR NUEVO CLIENTE --------------------
   const router = useRouter();
   const [imagenUrl, setImagenUrl] = useState("");
   
   // Mutation para crear nuevos productos, y funcion para actualizar el cache de la app
-    const [nuevoProducto] = useMutation(NUEVO_PRODUCTO);
-    
-    
+    const [nuevoProducto] = useMutation(NUEVO_PRODUCTO, {
+        
+        //Se efectua la funcion "update" para actualizar el cache
+        update(cache, { data: { nuevoProducto } }) {
+            
+            //1.  Obtener el objeto de cache que deseamos actualizar
+            const { obtenerProductos } = cache.readQuery({ query: OBTENER_PRODUCTOS });
 
-  // const [ nuevoCliente ] = useMutation(NUEVO_CLIENTE);
+            //2. Rescribimos el cache (el cahe no se debe modificar, mas si rescribir)
+            cache.writeQuery({
+                query: OBTENER_PRODUCTOS, //Se listan los productos
+                data: {
+                    obtenerProductos: [...obtenerProductos, nuevoProducto] // Se anade el nuevo producto
+                }
+            })
+        }
+    });
+
 
   //*---------------------- ENVIAR FORMULARIO A LA BD --------------------
 
@@ -72,9 +100,8 @@ const NuevoProducto = () => {
         precio = parseInt(precio, 10)
         existencia = parseInt(existencia, 10)
 
-        console.log(imagenUrl, nombre, descripcion, existencia, precio, moneda)
-        
-        
+        // console.log(imagenUrl, nombre, descripcion, existencia, precio, moneda)
+
         try {
         const { data } = await nuevoProducto({
           variables: {
@@ -88,18 +115,19 @@ const NuevoProducto = () => {
             },
           },
         });
-        console.log(data)
+        
+        //Notificacion de exito!
+        Swal.fire(
+            '¡Producto agregado!',
+            data.nuevoProducto,
+            'success'
+          )
 
-        //redireccionar hacia clientes
-        // router.push("/dashboard/productos");
+        //Redireccionar hacia clientes
+        router.push("/dashboard/productos");
         } catch (error) {
             console.log(error)
-        // Swal.fire({
-        //   icon: "error",
-        //   title: error.message,
-        //   showConfirmButton: false,
-        //   timer: 3000,
-        // });
+        
       }
     },
   });
@@ -377,9 +405,13 @@ const NuevoProducto = () => {
                           <select
                             id="moneda"
                             type="text"
-                            className={`block w-full max-w-lg px-3 py-2 placeholder-gray-400  border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none  sm:text-sm focus:border-blue-500 focus:ring-blue-500 border"
-                            sm:max-w-xs sm:text-s`}
-                            placeholder="Tipo de moneda"
+                            className={`block w-full max-w-lg px-3 py-2 placeholder-gray-400  border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none  sm:text-sm   ${
+                                (formik.errors.moneda)
+                                  ? "focus:border-red-500 focus:ring-red-500 placeholder-opacity-100 placeholder-red-300 border-red-500 border-2"
+                                  : "focus:border-blue-500 focus:ring-blue-500 border"
+                              }  sm:max-w-xs sm:text-s`}
+                                placeholder={`${(formik.errors.moneda) && formik.errors.moneda}`
+                                }
                             value={formik.values.moneda}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}

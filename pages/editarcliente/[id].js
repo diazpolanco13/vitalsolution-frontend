@@ -6,6 +6,7 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import * as Yup from "yup";
 import { fileUpload } from "../../helpers/fileUpload";
 import Swal from "sweetalert2";
+import Sping from "../../components/Sping";
 
 const OBTENER_CLIENTE = gql`
   query obtenerCliente($id: ID!) {
@@ -33,7 +34,32 @@ const OBTENER_CLIENTE = gql`
     }
   }
 `;
-
+const OBTENER_CLIENTES_USUARIOS = gql`
+      query obtenerClientes {
+        obtenerClientes {
+          id
+          nombre
+          apellido
+          documentoIndentidad
+          telefono
+          email
+          vendedor
+          creado
+          direccion {
+            estado
+            lugar
+            municipio
+          }
+          imagen
+          profesion
+          planAfiliacion {
+            ofertas
+            recordatorio
+            suscripcion
+          }
+         }
+      }
+`;
 const ACTUALIZAR_CLIENTE = gql`
   mutation actualizarCliente($id: ID!, $input: ClienteInput) {
     actualizarCliente(id:$id, input: $input){
@@ -62,20 +88,39 @@ const ACTUALIZAR_CLIENTE = gql`
 const EditarCliente = () => {
   const [imagenUrl, setImagenUrl] = useState('')
   
-  //Obtener el ID aactual
+  //1. Obtener el ID aactual
   const router = useRouter();
   const { query: { id } } = router;
 
 
-  //Consultar para obtener EditarCliente
+  //2. Consultar para obtener EditarCliente
   const { data, loading, error } = useQuery(OBTENER_CLIENTE, {
     variables: {
       id,
     },
   });
 
-  //Actualizar ClienteInput
-  const [ actualizarCliente ] = useMutation(ACTUALIZAR_CLIENTE)
+  //3. Actualizar ClienteInput
+  const [ actualizarCliente ] = useMutation(ACTUALIZAR_CLIENTE, {
+    
+    update(cache, { data: { actualizarCliente } }) {
+
+    //Obtener el objeto de cache que deseamos actualizar
+    const { obtenerClientes } = cache.readQuery({ query: OBTENER_CLIENTES_USUARIOS });
+    
+    //Rescribimos el cache (el cahe no se debe modificar, mas si rescribir)
+    cache.writeQuery({
+      query: OBTENER_CLIENTES_USUARIOS, //cual se modifica? 
+      data: {
+        obtenerClientes : [...obtenerClientes, actualizarCliente] // Con lo que se modifica
+      }
+    })
+  }
+})
+
+
+
+
 
   // Eschema de validacion
   const schemaValidacion = Yup.object({
@@ -99,10 +144,12 @@ const EditarCliente = () => {
   
   
   //Proteger que no accedamos a data antes de tener los resultados
-  if (loading) return 'Cargado...'
+  if (loading) return (
+    <Sping/>
+  )
   
   
-  // Desestructuramos la informaciondel cliente
+  // Desestructuramos la informacion del cliente
   const { obtenerCliente } = data || { obtenerCliente: {} };
   
 
@@ -155,16 +202,18 @@ const EditarCliente = () => {
           }
         }
       });
-      router.push('/dashboard/clientes') //redireccionar hacia clientes
+      
+      //Notificacion de exito!
+      Swal.fire(
+        '¡Correcto!',
+        'El cliente se actualizó correctamente',
+        'success'
+      )
+      //Redireccionar a la pagina principal
+      router.push('/dashboard/clientes') 
 
     } catch (error) {
       console.log(error)
-      Swal.fire({
-        icon: 'error',
-        title: error.message,
-        showConfirmButton: false,
-        timer: 5000
-      })
     }
   }
 
@@ -184,7 +233,7 @@ const EditarCliente = () => {
   
   return (
     <div>
-      <Dashboard>
+      <Dashboard path="clientes">
         <Formik
           validationSchema={schemaValidacion}
           enableReinitialize
@@ -281,7 +330,7 @@ const EditarCliente = () => {
                               </label>
                               <div className="flex items-start justify-center h-full p-2 mt-1">
                                 {
-                                  ((props.values.imagen) === "") ? (
+                                  ((props.values.imagen) === "") && (imagenUrl === "") ? (
                                     <span className="flex items-start overflow-hidden bg-gray-100 rounded-md w-28">
                                       <svg
                                         className="flex items-center w-full h-full text-gray-300"
@@ -303,6 +352,12 @@ const EditarCliente = () => {
                                       src={imagenUrl}
                                       alt="Imagen de perfil"
                                     /> 
+                                  ) : (props.values.imagen === "") && (imagenUrl !== "") ? (
+                                    <img
+                                    className="flex w-32 h-32 rounded-md "
+                                    src={imagenUrl}
+                                    alt="Imagen de perfil"
+                                     />
                                   ) : null
                                 }
                               </div>
