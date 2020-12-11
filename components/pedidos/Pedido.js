@@ -16,6 +16,14 @@ const ELIMINAR_PEDIDO = gql`
     }
 `;
 
+const OBTENER_PEDIDOS_VENDEDOR = gql`
+  query obtenerPedidosVendedor {
+    obtenerPedidosVendedor {
+      id
+    }
+  }
+`;
+
 const Pedido = ({ pedido }) => {
     const {
         id,
@@ -35,7 +43,20 @@ const Pedido = ({ pedido }) => {
 
   //Mutation para cambiar el estado del pedido
     const [ actualizarPedido ] = useMutation(ATUALIZAR_PEDIDO);
-    const [ eliminarPedido ] = useMutation(ELIMINAR_PEDIDO);
+    const [eliminarPedido] = useMutation(ELIMINAR_PEDIDO, {
+        update(cache) {
+            const { obtenerPedidosVendedor } = cache.readQuery({
+                query: OBTENER_PEDIDOS_VENDEDOR
+            });
+
+            cache.writeQuery({
+                query: OBTENER_PEDIDOS_VENDEDOR,
+                data: {
+                    obtenerPedidosVendedor: obtenerPedidosVendedor.filter(pedido => pedido.id !== id)
+                }
+            })
+        }
+    });
     
     
   const [estadoPedido, setEstadoPedido] = useState(estado);
@@ -48,18 +69,19 @@ const Pedido = ({ pedido }) => {
     clasePedido();
   }, [estadoPedido]);
 
-  const clasePedido = () => {
-    if (estadoPedido === "PENDIENTE") {
-      setClase("border-yellow-500");
-    } else if (estadoPedido === "COMPLETADO") {
-      setClase("border-green-500");
-    } else {
-      setClase("border-red-800");
-    }
-  };
+    
+    
+    const clasePedido = () => {
+        if (estadoPedido === "PENDIENTE") {
+        setClase("border-yellow-500");
+        } else if (estadoPedido === "COMPLETADO") {
+        setClase("border-green-500");
+        } else {
+        setClase("border-red-800");
+        }
+    };
 
     const cambiarEstadoPedido = async (nuevoEstado) => {
-    
        try {
            const { data } = await actualizarPedido({
                variables: {
