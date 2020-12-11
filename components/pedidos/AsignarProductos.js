@@ -61,7 +61,7 @@ const AsignarProductos = () => {
                 isMulti={true}
                 onChange={(seleccion) => seleccionarProductos(seleccion)}
                 getOptionValue={(opciones) => opciones.id} 
-                getOptionLabel={(opciones) => `${opciones.nombre}`}
+                getOptionLabel={(opciones) => `${opciones.nombre}, Disponibles: ${opciones.existencia}`}
                 placeholder='Busque o seleccione un producto'
                 noOptionsMessage={() => 'No hay resultados'}
             />

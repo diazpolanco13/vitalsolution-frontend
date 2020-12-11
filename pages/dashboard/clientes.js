@@ -37,8 +37,8 @@ const Clientes = () => {
   const { data, loading, error } = useQuery(OBTENER_CLIENTES_USUARIOS);
   // console.log(data)
 
-  //Proteger que no accedamos a data antes de tener los resultados
-  // if (loading) return null;
+  // Proteger que no accedamos a data antes de tener los resultados
+  if (loading) return null;
 
   const { obtenerClientes } = data || { obtenerClientes: [] };
   // const { obtenerClientes = [] } = data || {}
