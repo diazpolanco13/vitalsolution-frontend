@@ -119,7 +119,7 @@ const NuevoProducto = () => {
         //Notificacion de exito!
         Swal.fire(
             '¡Producto agregado!',
-            data.nuevoProducto,
+           "Se ha creado un nuevo producto",
             'success'
           )
 
@@ -146,7 +146,7 @@ const NuevoProducto = () => {
 
   return (
     <>
-      <Dashboard>
+      <Dashboard path="productos">
         <main
           className="relative flex justify-center flex-1 overflow-y-auto focus:outline-none"
           tabIndex="0"

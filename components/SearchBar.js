@@ -3,9 +3,8 @@ import { TransitionContext } from "../context/TransitionContext";
 import DarkMode from "./DarkMode";
 import DropDown from "./DropDown";
 
-const SearchBar = ( darkOn ) => {
+const SearchBar = (darkOn) => {
   const { showSidebar, setShowSidebar } = useContext(TransitionContext);
-
 
   return (
     <>
@@ -38,6 +37,7 @@ const SearchBar = ( darkOn ) => {
               <label htmlFor="search_field" className="sr-only">
                 Buscar
               </label>
+
               <div className="relative w-full text-gray-400 focus-within:text-gray-600">
                 <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
                   {/* Heroicon name: search */}
@@ -55,6 +55,7 @@ const SearchBar = ( darkOn ) => {
                     />
                   </svg>
                 </div>
+
                 <input
                   id="search_field"
                   className="block w-full h-full py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 border-transparent focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
@@ -70,7 +71,7 @@ const SearchBar = ( darkOn ) => {
           <div className="flex items-center ml-4 md:ml-6">
             <button className="p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span className="sr-only">View notifications</span>
-              
+
               <svg
                 className="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
