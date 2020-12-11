@@ -16,6 +16,39 @@ const REGISTRAR_PEDIDO = gql`
   }
 `;
 
+const OBTENER_PEDIDOS_VENDEDOR = gql`
+  query obtenerPedidosVendedor {
+    obtenerPedidosVendedor {
+      id
+      pedido {
+        id
+        cantidad
+        nombre
+        precio
+      }
+      total
+      estado
+      cliente {
+        id
+        nombre
+        apellido
+        email
+        imagen
+        telefono
+        direccion {
+          estado
+          municipio
+          lugar
+        }
+        planAfiliacion {
+        suscripcion
+        }
+      }
+      creado
+    }
+  }
+`;
+
 const HeaderRegistrarPedido = () => {
   const router = useRouter();
 
@@ -25,7 +58,21 @@ const HeaderRegistrarPedido = () => {
   const { cliente, productos, total } = pedidoContext;
 
   //Mutation para crear un nuevo pedido
-  const [ nuevoPedido ] = useMutation(REGISTRAR_PEDIDO);
+  const [nuevoPedido] = useMutation(REGISTRAR_PEDIDO, {
+    update(cache, { data: { nuevoPedido } }) {
+      const { obtenerPedidosVendedor } = cache.readQuery({
+        query: OBTENER_PEDIDOS_VENDEDOR
+      })
+
+      cache.writeQuery({
+        query: OBTENER_PEDIDOS_VENDEDOR,
+        data: {
+          obtenerPedidosVendedor: [...obtenerPedidosVendedor, nuevoPedido]
+        }
+      })
+
+    }
+  });
 
 
   const validarRegistrarPedido = () => {

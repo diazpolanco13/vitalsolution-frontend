@@ -9,11 +9,6 @@ import ResumenPedido from "../../components/pedidos/ResumenPedido";
 
 const NuevoPedido = () => {
 
-  //Validar pedidos
-  const validarPedido = () => {
-
-  }
-
   return (
     <>
       <Dashboard path="pedidos">
