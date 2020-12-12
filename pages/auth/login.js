@@ -51,12 +51,16 @@ const Login = () => {
             },
           },
         });
-        //*Data el el return del objeto creado en la BD
+        //*Data es el return del objeto creado en la BD
         
         //Guardar token en el localStorage
-        const { token } = data.autenticarUsuario;
+        setTimeout(() => {
+          const { token } = data.autenticarUsuario;
+          localStorage.setItem('token', token);
+          
+        }, 1000);
 
-        localStorage.setItem('token', token)
+
         setTimeout(() => {
           router.push('/dashboard/panel')
       }, 1000);
