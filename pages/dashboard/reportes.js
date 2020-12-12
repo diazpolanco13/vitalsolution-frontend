@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import Dashboard from "../../components/Dashboard";
 import { gql, useQuery } from '@apollo/client'
@@ -20,10 +20,25 @@ const MEJORES_VENDEDORES = gql`
   }
 `;
 
+const MEJORES_CLIENTES = gql`
+    query mejoresClientes {
+    mejoresClientes {
+        cliente{
+          nombre
+          apellido
+          documentoIndentidad
+          email
+          telefono
+        }
+      total
+      }
+    }
+`;
 
 const Reportes = () => {
 
   const { data, loading, error, startPolling, stopPolling } = useQuery(MEJORES_VENDEDORES);
+  const { data: dataClientes , loading: loadingClientes, error: errorClientes } = useQuery(MEJORES_CLIENTES);
   
   useEffect(() => {
     startPolling(1000)
@@ -35,10 +50,13 @@ const Reportes = () => {
   if (loading) return 'cargando...'
   
   const { mejoresVendedores } = data || {mejoresVendedores: []}
+  const { mejoresClientes } = dataClientes || {mejoresClientes: []}
    
+  console.log(mejoresClientes)
+
+//Estandarizando objeto de vendedores a formato compatible 
   const vendedorGrafica = [];
-  
-  
+ 
   mejoresVendedores.map((vendedor, index) => {
     vendedorGrafica[index] = {
       ...vendedor.vendedor[0],
@@ -46,7 +64,17 @@ const Reportes = () => {
     }
   })
   
-  // console.log(vendedorGrafica)
+//Estandarizando objeto de vendedores a formato compatible 
+  const clienteGrafica = [];
+ 
+  mejoresClientes.map((cliente, index) => {
+    clienteGrafica[index] = {
+      ...cliente.cliente[0],
+      total: cliente.total
+    }
+  })
+  
+
   return (
     <>
       <Dashboard path="reportes">
@@ -62,7 +90,7 @@ const Reportes = () => {
               
               <div className="flex flex-row flex-wrap flex-grow mt-2">
 
-              <div className="w-full p-6 md:w-2/2">
+              <div className="w-full p-6 md:w-1/2">
                   {/*Graph Card*/}
                   <div className="flex flex-col bg-white border-transparent rounded-lg shadow-xl">
                       <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
@@ -70,7 +98,7 @@ const Reportes = () => {
                       </div>
                     <BarChart
                         className="mt-5 align-middle"
-                        width={700}
+                        width={500}
                         height={300}
                         data={vendedorGrafica}
                         margin={{
@@ -100,17 +128,17 @@ const Reportes = () => {
                          className="mt-5 align-middle"
                         width={500}
                         height={300}
-                        data={data}
+                        data={clienteGrafica}
                         margin={{
                           top: 5, right: 30, left: 20, bottom: 5,
                         }}
                       >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
+                        <XAxis dataKey="email" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="uv" fill="#2980b9" />
+                        <Bar dataKey="total" fill="#2980b9" />
                       </BarChart>
                         
                     </div>
