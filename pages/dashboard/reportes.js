@@ -1,10 +1,52 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import {
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+} from 'recharts';
 import Dashboard from "../../components/Dashboard";
+import { gql, useQuery } from '@apollo/client'
+
+
+const MEJORES_VENDEDORES = gql`
+  query mejoresVendedores {
+    mejoresVendedores { 
+      vendedor {
+        nombre
+        apellido
+        email
+        telefono
+      }
+      total
+    }
+  }
+`;
+
 
 const Reportes = () => {
 
- 
+  const { data, loading, error, startPolling, stopPolling } = useQuery(MEJORES_VENDEDORES);
+  
+  useEffect(() => {
+    startPolling(1000)
+    return () => {
+      stopPolling() 
+    }
+  }, [startPolling, stopPolling])
+
+  if (loading) return 'cargando...'
+  
+  const { mejoresVendedores } = data || {mejoresVendedores: []}
+   
+  const vendedorGrafica = [];
+  
+  
+  mejoresVendedores.map((vendedor, index) => {
+    vendedorGrafica[index] = {
+      ...vendedor.vendedor[0],
+      total: vendedor.total
+    }
+  })
+  
+  // console.log(vendedorGrafica)
   return (
     <>
       <Dashboard path="reportes">
@@ -17,11 +59,64 @@ const Reportes = () => {
               <h1 className="text-2xl font-semibold text-gray-900">Reportes</h1>
             </div>
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-              {/* Replace with your content */}
-              <div className="py-4">
-                <div className="border-4 border-gray-200 border-dashed rounded-lg h-96"></div>
+              
+              <div className="flex flex-row flex-wrap flex-grow mt-2">
+
+              <div className="w-full p-6 md:w-2/2">
+                  {/*Graph Card*/}
+                  <div className="flex flex-col bg-white border-transparent rounded-lg shadow-xl">
+                      <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
+                          <h5 className="font-bold text-gray-600 uppercase">Mejores vendedores</h5>
+                      </div>
+                    <BarChart
+                        className="mt-5 align-middle"
+                        width={700}
+                        height={300}
+                        data={vendedorGrafica}
+                        margin={{
+                          top: 5, right: 30, left: 20, bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="email" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="total" fill="#2980b9" />
+                      </BarChart>
+                                  
+                  </div>
+                  {/*/Graph Card*/}
               </div>
-              {/* /End replace */}
+
+                <div className="w-full p-6 md:w-1/2">
+                    {/*Graph Card*/}
+                    <div className="justify-center bg-white border-transparent rounded-lg shadow-xl ">
+                        <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
+                            <h5 className="font-bold text-gray-600 uppercase">Mejores Clientes</h5>
+                        </div>
+                        
+                      <BarChart
+                         className="mt-5 align-middle"
+                        width={500}
+                        height={300}
+                        data={data}
+                        margin={{
+                          top: 5, right: 30, left: 20, bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="uv" fill="#2980b9" />
+                      </BarChart>
+                        
+                    </div>
+                    {/*/Graph Card*/}
+                </div>
+              </div>
             </div>
           </div>
         </main>

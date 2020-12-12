@@ -86,7 +86,12 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
           'success'
         )
       } catch (error) {
-        console.log(error)
+        //Mostrar una alerta
+        Swal.fire(
+          'Error',
+          error.message,
+          'error'
+        )
       }
 
       }
@@ -119,7 +124,7 @@ const PersonList = ({ id, nombre, apellido, documentoIndentidad, telefono, email
                   </svg>
                 </span>
               ) : (
-                <img className="flex w-12 h-12 rounded-full " src={imagen} alt="" />
+                <img className="flex w-12 h-12 rounded-full " src={imagen} alt={nombre} />
               )
             }
           </td>

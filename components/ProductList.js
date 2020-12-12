@@ -57,7 +57,7 @@ const ProducList = ({ id,  nombre,  imagen,  descripcion,  existencia,  precio, 
       cancelButtonColor: "#d33",
       confirmButtonText: "Sí, Eliminar",
       cancelButtonText: "No, Cancelar!",
-    }).then(async (result) => {
+    }).then( async (result) => {
       if (result.isConfirmed) {
         try {
           const { data } = await eliminarProducto({
