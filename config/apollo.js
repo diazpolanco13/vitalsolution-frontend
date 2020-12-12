@@ -4,7 +4,7 @@ import { setContext } from 'apollo-link-context'
 
 //tener la configuracion de hacia donde nos vamos a conectar para obtener los datos 
 const httpLink = createHttpLink({
-    uri: 'https://vitalsolution-frontend.vercel.app',
+    uri: 'https://sheltered-citadel-45701.herokuapp.com/',
     fetch
 });
 
