@@ -4,7 +4,7 @@ import { setContext } from 'apollo-link-context'
 
 //tener la configuracion de hacia donde nos vamos a conectar para obtener los datos 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:4000/',
+    uri: 'https://vitalsolution-frontend.vercel.app',
     fetch
 });
 
