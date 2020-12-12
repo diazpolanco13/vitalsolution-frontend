@@ -213,7 +213,11 @@ const EditarCliente = () => {
       router.push('/dashboard/clientes') 
 
     } catch (error) {
-      console.log(error)
+      Swal.fire(
+        'Error',
+        error.message,
+        'error'
+      )
     }
   }
 
