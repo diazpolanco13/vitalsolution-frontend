@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import Dashboard from "../../components/Dashboard";
 import { gql, useQuery } from '@apollo/client'
@@ -92,26 +92,32 @@ const Reportes = () => {
 
               <div className="w-full p-6 md:w-1/2">
                   {/*Graph Card*/}
-                  <div className="flex flex-col bg-white border-transparent rounded-lg shadow-xl">
-                      <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
-                          <h5 className="font-bold text-gray-600 uppercase">Mejores vendedores</h5>
-                      </div>
-                    <BarChart
-                        className="mt-5 align-middle"
-                        width={500}
-                        height={300}
-                        data={vendedorGrafica}
-                        margin={{
-                          top: 5, right: 30, left: 20, bottom: 5,
-                        }}
-                      >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="email" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="total" fill="#2980b9" />
-                      </BarChart>
+                  <div className="justify-center bg-white border-transparent rounded-lg shadow-xl ">
+                        <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
+                            <h5 className="font-bold text-gray-600 uppercase">Mejores vendedores</h5>
+                        </div>
+                    <ResponsiveContainer
+                       width={'99%'}
+                       height={350}
+                    >
+                      <BarChart
+                          className="mt-5 align-middle"
+                          width={500}
+                          height={300}
+                          data={vendedorGrafica}
+                          margin={{
+                            top: 5, right: 30, left: 20, bottom: 5,
+                          }}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="email" />
+                          <YAxis />
+                          <Tooltip />
+                          <Legend />
+                          <Bar dataKey="total" fill="#2980b9" />
+                        </BarChart>
+
+                    </ResponsiveContainer>
                                   
                   </div>
                   {/*/Graph Card*/}
@@ -123,7 +129,10 @@ const Reportes = () => {
                         <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
                             <h5 className="font-bold text-gray-600 uppercase">Mejores Clientes</h5>
                         </div>
-                        
+                        <ResponsiveContainer
+                       width={'99%'}
+                       height={350}
+                    >
                       <BarChart
                          className="mt-5 align-middle"
                         width={500}
@@ -140,6 +149,8 @@ const Reportes = () => {
                         <Legend />
                         <Bar dataKey="total" fill="#2980b9" />
                       </BarChart>
+                      
+                    </ResponsiveContainer>
                         
                     </div>
                     {/*/Graph Card*/}
