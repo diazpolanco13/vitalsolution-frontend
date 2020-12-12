@@ -150,7 +150,7 @@ const Pedido = ({ pedido }) => {
                 <div className="flex items-center flex-1 min-w-0">
                   <div className="flex-1 min-w-0 px-4 md:grid md:grid-cols-12 md:gap-4">
                     {/* panel 1 */}
-                    <div className="col-span-4 border border-gray-400 rounded-lg">
+                    <div className="col-span-4 mb-2 border border-gray-400 rounded-lg md:mb-0">
                       <div className="flex items-center justify-between w-full p-6 space-x-6">
                         <div className="flex-1 truncate">
                           <div className="flex items-center space-x-3">
@@ -185,11 +185,10 @@ const Pedido = ({ pedido }) => {
                         }
                       </div>
                       <div>
-                        <div className="flex -mt-px border-t border-gray-400 divide-x divide-gray-200">
-                          <div className="flex flex-1 w-full">
-                            <a
-                              href="#"
-                              className="relative inline-flex items-center justify-start flex-1 w-0 py-4 ml-2 text-sm font-medium text-gray-700 border border-transparent rounded-bl-lg hover:text-gray-500"
+                        <div className="flex w-full -mt-px border-t border-gray-400 divide-x divide-gray-200">
+                          <div className="flex flex-auto">
+                            <div
+                              className="relative inline-flex items-center justify-start w-0 py-4 ml-2 text-sm font-medium text-gray-700 border border-transparent rounded-bl-lg hover:text-gray-500"
                             >
                               {/* Heroicon name: mail */}
                               <svg
@@ -205,12 +204,11 @@ const Pedido = ({ pedido }) => {
                               <span className="pl-1 text-xs text-left">
                                 {email}
                               </span>
-                            </a>
+                            </div>
                           </div>
 
-                          <div className="flex flex-1 w-0 -ml-px">
-                            <a
-                              href="#"
+                          <div className="flex flex-auto w-0 -ml-px">
+                            <div
                               className="relative inline-flex items-center justify-start flex-1 w-0 py-4 ml-2 text-sm font-medium text-gray-700 border border-transparent rounded-bl-lg hover:text-gray-500"
                             >
                               {/* Heroicon name: phone */}
@@ -226,7 +224,7 @@ const Pedido = ({ pedido }) => {
                               <span className="pl-2 text-xs text-left">
                                 {telefono}
                               </span>
-                            </a>
+                            </div>
                           </div>
                         </div>
                       </div>
