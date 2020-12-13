@@ -254,7 +254,7 @@ const Pedido = ({ pedido }) => {
 
                       <div className="flex flex-col justify-around w-1/5 col-span-2">
                         <select
-                          className={`block w-full max-w-xl px-3 py-2 placeholder-gray-400 border-gray-400 rounded-md shadow-sm appearance-none focus:outline-none  sm:text-sm focus:border-blue-500 focus:ring-blue-500 border sm:max-w-xs sm:text-s`}
+                          className={`block w-full text-center max-w-xl px-3 py-2 placeholder-gray-400 border-gray-400 rounded-md shadow-sm appearance-none focus:outline-none  sm:text-sm focus:border-blue-500 focus:ring-blue-500 border sm:max-w-xs sm:text-s`}
                             defaultValue={estadoPedido}
                             onChange={ e => cambiarEstadoPedido(e.target.value)}
                         >
@@ -266,7 +266,7 @@ const Pedido = ({ pedido }) => {
                         <button
                           type="button"
                           onClick={() => confirmarEliminarPedido(id)}
-                          className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 uppercase w-full    "
+                          className="inline-flex items-center w-full px-2 py-2 text-xs font-medium text-white uppercase bg-red-800 border border-transparent rounded shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 "
                         >
                           <span className="w-full text-center">
                             Eliminar pedido
