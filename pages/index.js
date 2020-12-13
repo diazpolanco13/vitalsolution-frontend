@@ -5,7 +5,7 @@ import Sping from '../components/Sping'
 const index = () => {
   return (
     <>
-      <Sping/>
+      <h1>Bienvenido a Vital Solution Store</h1>
     </>
   )
 }

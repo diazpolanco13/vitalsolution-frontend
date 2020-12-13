@@ -3,6 +3,7 @@ import Dashboard from "../../components/Dashboard";
 import HeaderTable from "../../components/HeaderTable";
 import { gql, useQuery } from '@apollo/client'
 import Pedido from "../../components/pedidos/Pedido";
+import Loading from "../../components/Loading";
 
 const OBTENER_PEDIDOS_VENDEDOR = gql`
   query obtenerPedidosVendedor {
@@ -48,29 +49,33 @@ const Pedidos = () => {
   return (
     <>
       <Dashboard path="pedidos">
-        <main
-          className="relative flex-1 overflow-y-auto focus:outline-none"
-          tabIndex="0"
-        >
-          <div className="py-6">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-            <HeaderTable titulo={"Pedidos"} />
+        {loading ? (
+          <Loading />
+        ) : (
+            <main
+              className="relative flex-1 overflow-y-auto focus:outline-none"
+              tabIndex="0"
+            >
+              <div className="py-6">
+                <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+                  <HeaderTable titulo={"Pedidos"} />
 
-              {
-                obtenerPedidosVendedor === 0 ? (
-                  <h1 className="mt-5 text-2xl text-center">No hay pedidos</h1>
-                ) : (
-                    obtenerPedidosVendedor.map( pedido => (
-                      <Pedido
-                        key={ pedido.id }
-                        pedido={ pedido }
-                      />
-                      ))
-                    )
-                }
-            </div>
-          </div>
-        </main>
+                  {
+                    obtenerPedidosVendedor === 0 ? (
+                      <h1 className="mt-5 text-2xl text-center">No hay pedidos</h1>
+                    ) : (
+                        obtenerPedidosVendedor.map(pedido => (
+                          <Pedido
+                            key={pedido.id}
+                            pedido={pedido}
+                          />
+                        ))
+                      )
+                  }
+                </div>
+              </div>
+            </main>
+          )}
       </Dashboard>
     </>
   );

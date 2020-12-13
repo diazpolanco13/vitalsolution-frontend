@@ -4,6 +4,8 @@ import {
 } from 'recharts';
 import Dashboard from "../../components/Dashboard";
 import { gql, useQuery } from '@apollo/client'
+import Sping from "../../components/Sping";
+import Loading from "../../components/Loading";
 
 
 const MEJORES_VENDEDORES = gql`
@@ -47,12 +49,11 @@ const Reportes = () => {
     }
   }, [startPolling, stopPolling])
 
-  if (loading) return 'cargando...'
+  // if (loading) return (<Sping/>)
   
   const { mejoresVendedores } = data || {mejoresVendedores: []}
   const { mejoresClientes } = dataClientes || {mejoresClientes: []}
    
-  console.log(mejoresClientes)
 
 //Estandarizando objeto de vendedores a formato compatible 
   const vendedorGrafica = [];
@@ -78,87 +79,91 @@ const Reportes = () => {
   return (
     <>
       <Dashboard path="reportes">
-        <main
-          className="relative flex-1 overflow-y-auto focus:outline-none"
-          tabIndex="0"
-        >
-          <div className="py-6">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-              <h1 className="text-2xl font-semibold text-gray-900">Reportes</h1>
-            </div>
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+        {loading ? (
+          <Loading />
+        ) : (
+            <main
+              className="relative flex-1 overflow-y-auto focus:outline-none"
+              tabIndex="0"
+            >
+              <div className="py-6">
+                <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+                  <h1 className="text-2xl font-semibold text-gray-900">Reportes</h1>
+                </div>
+                <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               
-              <div className="flex flex-row flex-wrap flex-grow mt-2">
+                  <div className="flex flex-row flex-wrap flex-grow mt-2">
 
-              <div className="w-full p-6 md:w-1/2">
-                  {/*Graph Card*/}
-                  <div className="justify-center bg-white border-transparent rounded-lg shadow-xl ">
+                    <div className="w-full p-6 md:w-1/2">
+                      {/*Graph Card*/}
+                      <div className="justify-center bg-white border-transparent rounded-lg shadow-xl ">
                         <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
-                            <h5 className="font-bold text-gray-600 uppercase">Mejores vendedores</h5>
-                        </div>
-                    <ResponsiveContainer
-                       width={'99%'}
-                       height={350}
-                    >
-                      <BarChart
-                          className="mt-5 align-middle"
-                          width={500}
-                          height={300}
-                          data={vendedorGrafica}
-                          margin={{
-                            top: 5, right: 30, left: 20, bottom: 5,
-                          }}
-                        >
-                          <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="email" />
-                          <YAxis />
-                          <Tooltip />
-                          <Legend />
-                          <Bar dataKey="total" fill="#2980b9" />
-                        </BarChart>
-
-                    </ResponsiveContainer>
-                                  
-                  </div>
-                  {/*/Graph Card*/}
-              </div>
-
-                <div className="w-full p-6 md:w-1/2">
-                    {/*Graph Card*/}
-                    <div className="justify-center bg-white border-transparent rounded-lg shadow-xl ">
-                        <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
-                            <h5 className="font-bold text-gray-600 uppercase">Mejores Clientes</h5>
+                          <h5 className="font-bold text-gray-600 uppercase">Mejores vendedores</h5>
                         </div>
                         <ResponsiveContainer
-                       width={'99%'}
-                       height={350}
-                    >
-                      <BarChart
-                         className="mt-5 align-middle"
-                        width={500}
-                        height={300}
-                        data={clienteGrafica}
-                        margin={{
-                          top: 5, right: 30, left: 20, bottom: 5,
-                        }}
-                      >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="email" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="total" fill="#2980b9" />
-                      </BarChart>
-                      
-                    </ResponsiveContainer>
-                        
+                          width={'99%'}
+                          height={350}
+                        >
+                          <BarChart
+                            className="mt-5 align-middle"
+                            width={500}
+                            height={300}
+                            data={vendedorGrafica}
+                            margin={{
+                              top: 5, right: 30, left: 20, bottom: 5,
+                            }}
+                          >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="email" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="total" fill="#2980b9" />
+                          </BarChart>
+
+                        </ResponsiveContainer>
+                                  
+                      </div>
+                      {/*/Graph Card*/}
                     </div>
-                    {/*/Graph Card*/}
+
+                    <div className="w-full p-6 md:w-1/2">
+                      {/*Graph Card*/}
+                      <div className="justify-center bg-white border-transparent rounded-lg shadow-xl ">
+                        <div className="p-2 text-gray-800 uppercase border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg bg-gradient-to-b from-gray-300 to-gray-100">
+                          <h5 className="font-bold text-gray-600 uppercase">Mejores Clientes</h5>
+                        </div>
+                        <ResponsiveContainer
+                          width={'99%'}
+                          height={350}
+                        >
+                          <BarChart
+                            className="mt-5 align-middle"
+                            width={500}
+                            height={300}
+                            data={clienteGrafica}
+                            margin={{
+                              top: 5, right: 30, left: 20, bottom: 5,
+                            }}
+                          >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="email" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="total" fill="#2980b9" />
+                          </BarChart>
+                      
+                        </ResponsiveContainer>
+                        
+                      </div>
+                      {/*/Graph Card*/}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </main>
+            </main>
+          )}
       </Dashboard>
     </>
   );
