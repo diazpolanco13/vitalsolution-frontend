@@ -79,7 +79,7 @@ const Reportes = () => {
   return (
     <>
       <Dashboard path="reportes">
-        {loading ? (
+        {loading || loadingClientes ? (
           <Loading />
         ) : (
             <main
