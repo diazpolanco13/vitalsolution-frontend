@@ -3,8 +3,8 @@ import { Menu, Transition } from "@headlessui/react";
 
 const Navbar = () => {
   const [showMenuMovil, setShowMenuMovil] = useState(false);
-  const [moreMenu, setMoreMenu] = useState(false);
-  const [solutionMenu, setSolutionMenu] = useState(false);
+  const [primerMenu, setPrimerMenu] = useState(false);
+  const [segundoMenu, setSegundoMenu] = useState(false);
 
   
   return (
@@ -53,14 +53,14 @@ const Navbar = () => {
             </div>
     {/* Menu movil hambuurguesa */}
 
-    {/* Menu movil  */}
+    {/* Menu principal  */}
             <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
               <nav className="flex space-x-10">
                 <div className="relative">
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     type="button"
-                    onClick={()=> setSolutionMenu(!solutionMenu)}
+                    onClick={()=> setPrimerMenu(!primerMenu)}
                     className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <span>Solutions</span>
@@ -100,7 +100,7 @@ const Navbar = () => {
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     type="button"
-                    onClick={()=> setMoreMenu(!moreMenu)}
+                    onClick={()=> setSegundoMenu(!segundoMenu)}
                     className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <span>More</span>
@@ -152,7 +152,7 @@ const Navbar = () => {
         
 {/* Solutions menu */}
     <Transition
-        show={solutionMenu}
+        show={primerMenu}
         enter= "transition ease-out duration-200"
         enterFrom= "opacity-0 -translate-y-1"
         enterTo= "opacity-100 translate-y-0"
@@ -422,7 +422,7 @@ const Navbar = () => {
 
 {/* More menu */}
     <Transition
-        show={moreMenu}
+        show={segundoMenu}
         enter= "transition ease-out duration-200"
         enterFrom= "opacity-0 -translate-y-1"
         enterTo= "opacity-100 translate-y-0"
@@ -759,11 +759,7 @@ const Navbar = () => {
             <div className="px-5 pt-5 pb-6 sm:pb-8">
               <div className="flex items-center justify-between">
                 <div>
-                  {/* <img
-                    className="w-auto h-8 sm:hidden"
-                    src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg"
-                    alt="Workflow"
-                  /> */}
+
                 </div>
                 <div className="-mr-2">
                   <button
