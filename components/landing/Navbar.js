@@ -18,8 +18,8 @@ const Navbar = () => {
                 <span className="sr-only">Vital Solution Store</span>
                 <img
                   className="w-auto h-8 sm:h-10"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                  alt=""
+                  src="https://firebasestorage.googleapis.com/v0/b/vital-solution-store.appspot.com/o/logo-192x192.png?alt=media&token=6d362387-12da-443c-b102-1cebd52c7d3a"
+                  alt="Vital Solution Store"
                 />
               </a>
             </div>
@@ -30,7 +30,7 @@ const Navbar = () => {
               <button
                 onClick={()=> setShowMenuMovil(!showMenuMovil)}
                 type="button"
-                className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
               >
                 <span className="sr-only">Open menu</span>
                 {/* Heroicon name: menu */}
@@ -61,7 +61,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={()=> setSolutionMenu(!solutionMenu)}
-                    className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <span>Solutions</span>
                     {/*
@@ -101,7 +101,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={()=> setMoreMenu(!moreMenu)}
-                    className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <span>More</span>
                     {/*
@@ -136,7 +136,7 @@ const Navbar = () => {
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                  className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700"
                   >
                   Inicia sesión
                 </a>
@@ -170,7 +170,7 @@ const Navbar = () => {
               >
                 <div className="flex md:h-full lg:flex-col">
                   <div className="flex-shrink-0">
-                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                       {/* Heroicon name: chart-bar */}
                       <svg
                         className="w-6 h-6"
@@ -199,7 +199,7 @@ const Navbar = () => {
                         coming from.
                       </p>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
+                    <p className="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
                       Learn more <span aria-hidden="true">&rarr;</span>
                     </p>
                   </div>
@@ -212,7 +212,7 @@ const Navbar = () => {
               >
                 <div className="flex md:h-full lg:flex-col">
                   <div className="flex-shrink-0">
-                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                       {/* Heroicon name: cursor-click */}
                       <svg
                         className="w-6 h-6"
@@ -241,7 +241,7 @@ const Navbar = () => {
                         way.
                       </p>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
+                    <p className="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
                       Learn more <span aria-hidden="true">&rarr;</span>
                     </p>
                   </div>
@@ -254,7 +254,7 @@ const Navbar = () => {
               >
                 <div className="flex md:h-full lg:flex-col">
                   <div className="flex-shrink-0">
-                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                       {/* Heroicon name: shield-check */}
                       <svg
                         className="w-6 h-6"
@@ -282,7 +282,7 @@ const Navbar = () => {
                         Your customers&#039; data will be safe and secure.
                       </p>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
+                    <p className="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
                       Learn more <span aria-hidden="true">&rarr;</span>
                     </p>
                   </div>
@@ -295,7 +295,7 @@ const Navbar = () => {
               >
                 <div className="flex md:h-full lg:flex-col">
                   <div className="flex-shrink-0">
-                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                    <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                       {/* Heroicon name: view-grid */}
                       <svg
                         className="w-6 h-6"
@@ -324,7 +324,7 @@ const Navbar = () => {
                         using.
                       </p>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-indigo-600 lg:mt-4">
+                    <p className="mt-2 text-sm font-medium text-blue-600 lg:mt-4">
                       Learn more <span aria-hidden="true">&rarr;</span>
                     </p>
                   </div>
@@ -732,7 +732,7 @@ const Navbar = () => {
                 </ul>
               </div>
               <div className="mt-6 text-sm font-medium">
-                <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                <a href="#" className="text-blue-600 hover:text-blue-500">
                   {" "}
                   View all posts <span aria-hidden="true">&rarr;</span>
                 </a>
@@ -761,14 +761,14 @@ const Navbar = () => {
                 <div>
                   {/* <img
                     className="w-auto h-8 sm:hidden"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg"
                     alt="Workflow"
                   /> */}
                 </div>
                 <div className="-mr-2">
                   <button
                     type="button"
-                    className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                   >
                     <span className="sr-only">Close menu</span>
                     {/* Heroicon name: x */}
@@ -797,7 +797,7 @@ const Navbar = () => {
                       href="#"
                       className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                         {/* Heroicon name: chart-bar */}
                         <svg
                           className="w-6 h-6"
@@ -824,7 +824,7 @@ const Navbar = () => {
                       href="#"
                       className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                         {/* Heroicon name: cursor-click */}
                         <svg
                           className="w-6 h-6"
@@ -851,7 +851,7 @@ const Navbar = () => {
                       href="#"
                       className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                         {/* Heroicon name: shield-check */}
                         <svg
                           className="w-6 h-6"
@@ -878,7 +878,7 @@ const Navbar = () => {
                       href="#"
                       className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white bg-blue-500 rounded-md sm:h-12 sm:w-12">
                         {/* Heroicon name: view-grid */}
                         <svg
                           className="w-6 h-6"
@@ -904,7 +904,7 @@ const Navbar = () => {
                   <div className="mt-8 text-base">
                     <a
                       href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                      className="font-medium text-blue-600 hover:text-blue-500"
                     >
                       {" "}
                       View all products <span aria-hidden="true">&rarr;</span>
@@ -960,13 +960,13 @@ const Navbar = () => {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                  className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700"
                 >
                   Sign up
                 </a>
                 <p className="mt-6 text-base font-medium text-center text-gray-500">
                   Existing customer?
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="text-blue-600 hover:text-blue-500">
                     Sign in
                   </a>
                 </p>
