@@ -6,6 +6,24 @@ const Navbar = () => {
   const [primerMenu, setPrimerMenu] = useState(false);
   const [segundoMenu, setSegundoMenu] = useState(false);
 
+
+  const estadoPrimerMenu = () => {
+    if (segundoMenu !== true) {
+      setPrimerMenu(!primerMenu)
+    } else if (segundoMenu) {
+      setSegundoMenu(!segundoMenu)
+      setPrimerMenu(!primerMenu)
+    }
+  }
+  
+  const estadoSegundoMenu = () => {
+    if (primerMenu !== true) {
+      setSegundoMenu(!segundoMenu)
+    } else if (primerMenu) {
+      setPrimerMenu(!primerMenu)
+      setSegundoMenu(!segundoMenu)
+    }
+  }
   
   return (
     <>
@@ -56,11 +74,12 @@ const Navbar = () => {
     {/* Menu principal  */}
             <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
               <nav className="flex space-x-10">
+               
                 <div className="relative">
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     type="button"
-                    onClick={()=> setPrimerMenu(!primerMenu)}
+                    onClick={estadoPrimerMenu}
                     className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <span>Solutions</span>
@@ -100,7 +119,7 @@ const Navbar = () => {
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     type="button"
-                    onClick={()=> setSegundoMenu(!segundoMenu)}
+                    onClick={estadoSegundoMenu}
                     className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <span>More</span>
