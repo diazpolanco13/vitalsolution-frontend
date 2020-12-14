@@ -1,11 +1,15 @@
 import React from 'react'
-import Sping from '../components/Sping'
+import Layout from '../components/landing/Layout'
+// import Sping from '../components/Sping'
 
 
 const index = () => {
   return (
     <>
+      <Layout>
       <h1>Bienvenido a Vital Solution Store</h1>
+
+      </Layout>
     </>
   )
 }
