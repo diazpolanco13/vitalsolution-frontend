@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 const Navbar = () => {
@@ -12,9 +12,10 @@ const Navbar = () => {
       <div className="relative bg-white">
         <div className="relative z-20 shadow">
           <div className="flex items-center justify-between px-4 py-5 mx-auto max-w-7xl sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+    {/* Logo */}         
             <div>
               <a href="#" className="flex">
-                <span className="sr-only">Workflow</span>
+                <span className="sr-only">Vital Solution Store</span>
                 <img
                   className="w-auto h-8 sm:h-10"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -22,7 +23,9 @@ const Navbar = () => {
                 />
               </a>
             </div>
-
+    {/* Logo */}
+            
+    {/* Menu movil hambuurguesa */}
             <div className="-my-2 -mr-2 md:hidden">
               <button
                 onClick={()=> setShowMenuMovil(!showMenuMovil)}
@@ -48,6 +51,9 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
+    {/* Menu movil hambuurguesa */}
+
+    {/* Menu movil  */}
             <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
               <nav className="flex space-x-10">
                 <div className="relative">
@@ -119,26 +125,33 @@ const Navbar = () => {
                   </button>
                 </div>
               </nav>
+
+{/* botones de inicio y registro */}
               <div className="flex items-center md:ml-12">
                 <a
                   href="#"
                   className="text-base font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Sign in
+                  >
+                  Regístrate
                 </a>
                 <a
                   href="#"
                   className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
-                >
-                  Sign up
+                  >
+                  Inicia sesión
                 </a>
               </div>
-            </div>
+{/* botones de inicio y registro */}
 
+
+            </div>
+    {/* Menu movil  */}
           </div>
         </div>
-     {/* Solutions menu */}
-        <Transition
+
+        
+{/* Solutions menu */}
+    <Transition
         show={solutionMenu}
         enter= "transition ease-out duration-200"
         enterFrom= "opacity-0 -translate-y-1"
@@ -404,9 +417,11 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        </Transition>
-        {/* More menu */}
-        <Transition
+    </Transition>
+
+
+{/* More menu */}
+    <Transition
         show={moreMenu}
         enter= "transition ease-out duration-200"
         enterFrom= "opacity-0 -translate-y-1"
@@ -725,14 +740,11 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+    </Transition>
 
-        </Transition>
-        {/*
-            Mobile menu, show/hide based on mobile menu state.
         
-           
-          */}
-        <Transition
+{/* Mobile menu, */}
+     <Transition
         show={showMenuMovil}
          enter= "duration-200 ease-out"
          enterFrom= "opacity-0 scale-95"
@@ -741,8 +753,7 @@ const Navbar = () => {
          leaveFrom= "opacity-100 scale-100"
          leaveTo= "opacity-0 scale-95"
         >
-            
-        
+
         <div className="absolute inset-x-0 top-0 z-10 p-2 transition origin-top-right transform md:hidden">
           <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
             <div className="px-5 pt-5 pb-6 sm:pb-8">
@@ -963,7 +974,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        </Transition>
+    </Transition>
       </div>
     </>
   );
