@@ -86,7 +86,7 @@ const Login = () => {
             <img
               className="w-auto h-40 mx-auto"
               src="https://firebasestorage.googleapis.com/v0/b/vital-solution-store.appspot.com/o/logo%3Dsinfondo.png?alt=media&token=1c72dbd3-e4e6-4bd1-9d43-4aabc88680da"
-              alt="Workflow"
+              alt="vital Solution"
             />
             <h2 className="mt-6 font-sans text-3xl font-extrabold text-center text-blue-800 ">
               BIENVENIDO
