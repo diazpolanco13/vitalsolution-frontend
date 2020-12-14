@@ -9,21 +9,19 @@ const Hero = () => {
                 <svg className="absolute inset-y-0 right-0 hidden w-48 h-full text-white transform translate-x-1/2 lg:block" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                 <polygon points="50,0 100,0 50,100 0,100" />
             </svg>
-            <div className="relative px-4 pt-8 sm:px-6 lg:px-8">
-                <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-                
-                <h1 className="mt-10 text-6xl font-extrabold tracking-tight text-blue-700 sm:text-5xl md:text-7xl">
-                  {/* <p className="block mb-2 xl:inline">Vital Solution Store <br/> </p> */}
+               
+            <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
+                <nav className="relative flex items-center mt-10 sm:h-10 lg:justify-start" aria-label="Global">
+                    <h1 className="text-5xl font-extrabold tracking-tight text-blue-600 sm:text-5xl md:text-6xl">
                     Purifica tu vida
-                  {/* <p className="block text-blue-600 xl:inline">
-                  </p> */}
-                </h1>
+                    </h1>
+                
                 </nav>
             </div>
             <main className="px-4 mx-auto mt-10 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
               <div className="sm:text-center lg:text-left">
-                
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+
+                <p className="text-base text-gray-500  sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                  Recupera tu salud y la de tu familia con nuestra gama de productos para purificar el agua. 
                 </p>
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
