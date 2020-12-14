@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 const Navbar = () => {
-  const [menu1, setMenu1] = useState(false);
+  const [showMenuMovil, setShowMenuMovil] = useState(false);
+  const [moreMenu, setMoreMenu] = useState(false);
+  const [solutionMenu, setSolutionMenu] = useState(false);
 
-  console.log(menu1);
+  
   return (
     <>
       <div className="relative bg-white">
@@ -23,6 +25,7 @@ const Navbar = () => {
 
             <div className="-my-2 -mr-2 md:hidden">
               <button
+                onClick={()=> setShowMenuMovil(!showMenuMovil)}
                 type="button"
                 className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               >
@@ -51,6 +54,7 @@ const Navbar = () => {
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     type="button"
+                    onClick={()=> setSolutionMenu(!solutionMenu)}
                     className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     <span>Solutions</span>
@@ -90,6 +94,7 @@ const Navbar = () => {
                   {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
                   <button
                     type="button"
+                    onClick={()=> setMoreMenu(!moreMenu)}
                     className="inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     <span>More</span>
@@ -132,17 +137,17 @@ const Navbar = () => {
 
           </div>
         </div>
-        {/* Solutions menu */}
-        {/*
-            'Solutions' flyout menu, show/hide based on flyout menu state.
-        
-            Entering: "transition ease-out duration-200"
-              From: "opacity-0 -translate-y-1"
-              To: "opacity-100 translate-y-0"
-            Leaving: "transition ease-in duration-150"
-              From: "opacity-100 translate-y-0"
-              To: "opacity-0 -translate-y-1"
-          */}
+     {/* Solutions menu */}
+        <Transition
+        show={solutionMenu}
+        enter= "transition ease-out duration-200"
+        enterFrom= "opacity-0 -translate-y-1"
+        enterTo= "opacity-100 translate-y-0"
+        leave= "transition ease-in duration-150"
+        leaveFrom= "opacity-100 translate-y-0"
+        leaveTo= "opacity-0 -translate-y-1"
+        >
+                  
         <div className="absolute inset-x-0 z-10 hidden transform shadow-lg md:block">
           <div className="bg-white">
             <div className="grid px-4 py-6 mx-auto max-w-7xl gap-y-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
@@ -399,18 +404,18 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
+        </Transition>
         {/* More menu */}
-        {/*
-            'More' flyout menu, show/hide based on flyout menu state.
-        
-            Entering: "transition ease-out duration-200"
-              From: "opacity-0 -translate-y-1"
-              To: "opacity-100 translate-y-0"
-            Leaving: "transition ease-in duration-150"
-              From: "opacity-100 translate-y-0"
-              To: "opacity-0 -translate-y-1"
-          */}
+        <Transition
+        show={moreMenu}
+        enter= "transition ease-out duration-200"
+        enterFrom= "opacity-0 -translate-y-1"
+        enterTo= "opacity-100 translate-y-0"
+        leave= "transition ease-in duration-150"
+        leaveFrom= "opacity-100 translate-y-0"
+        leaveTo= "opacity-0 -translate-y-1"
+        >
+
         <div className="absolute inset-x-0 z-10 hidden transform shadow-lg md:block">
           <div className="absolute inset-0 flex">
             <div className="w-1/2 bg-white"></div>
@@ -721,16 +726,23 @@ const Navbar = () => {
           </div>
         </div>
 
+        </Transition>
         {/*
             Mobile menu, show/hide based on mobile menu state.
         
-            Entering: "duration-200 ease-out"
-              From: "opacity-0 scale-95"
-              To: "opacity-100 scale-100"
-            Leaving: "duration-100 ease-in"
-              From: "opacity-100 scale-100"
-              To: "opacity-0 scale-95"
+           
           */}
+        <Transition
+        show={showMenuMovil}
+         enter= "duration-200 ease-out"
+         enterFrom= "opacity-0 scale-95"
+         enterTo= "opacity-100 scale-100"
+         leave= "duration-100 ease-in"
+         leaveFrom= "opacity-100 scale-100"
+         leaveTo= "opacity-0 scale-95"
+        >
+            
+        
         <div className="absolute inset-x-0 top-0 z-10 p-2 transition origin-top-right transform md:hidden">
           <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
             <div className="px-5 pt-5 pb-6 sm:pb-8">
@@ -951,6 +963,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+        </Transition>
       </div>
     </>
   );
