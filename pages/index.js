@@ -9,8 +9,7 @@ const index = () => {
     <>
       <Layout>
         <Hero />
-      <h1>Bienvenido a Vital Solution Store</h1>
-
+      
       </Layout>
     </>
   )
