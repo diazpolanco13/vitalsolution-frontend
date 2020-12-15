@@ -29,6 +29,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "autoprefixer": "^10.0.2",
+    "react-alice-carousel": "^2.1.0",
     "tailwindcss": "^2.0.1"
   }
 }
