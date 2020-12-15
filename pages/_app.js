@@ -6,7 +6,6 @@ import PedidosState from '../context/pedidos/PedidosState'
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 
-
 function MyApp({ Component, pageProps }) {
 
   return (
