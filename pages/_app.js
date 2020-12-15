@@ -3,6 +3,9 @@ import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import client from '../config/apollo'
 import PedidosState from '../context/pedidos/PedidosState'
+import 'react-alice-carousel/lib/alice-carousel.css';
+
+
 
 function MyApp({ Component, pageProps }) {
 
