@@ -29,6 +29,7 @@
     "yup": "^0.31.0"
   },
   "devDependencies": {
+    "@brainhubeu/react-carousel": "^1.19.26",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "autoprefixer": "^10.0.2",
     "tailwindcss": "^2.0.1"
