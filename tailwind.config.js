@@ -14,10 +14,14 @@ module.exports = {
         800: "#51931a",
         900: "#3c6c13"
       },
+      backgroundImage: {
+        'producto': "url('https://res.cloudinary.com/apidev/image/upload/v1608142883/UI/bhxirputbuees411o4qf.jpg')"
+      },
     },
   },
   variants: {
     extend: {
+      transitionDelay: ['hover', 'focus'],
       gradientColorStops: ['active', 'group-hover'],
       textOpacity: ['dark'],
       animation: ['responsive', 'motion-safe', 'motion-reduce']

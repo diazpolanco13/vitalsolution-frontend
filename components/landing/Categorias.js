@@ -14,26 +14,25 @@ const Categorias = () => {
           </div>
 
           <div className="flex flex-wrap -m-4">
+           
             <div className="p-4 xl:w-1/3 md:w-1/2">
-              <div className="p-6 bg-gray-100 rounded-lg">
+              <div className="p-6 rounded-lg shadow-md bg-blue-50">
                 <img
-                  className="object-cover object-center w-full h-40 mb-6 rounded"
-                  src="https://dummyimage.com/721x401"
+                  className="object-contain object-center w-full h-40 mb-6 rounded"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608082284/tglswwqcy2h3ltoucdei.png"
                   alt="contenido"
                 />
-                <h3 className="text-xs font-medium tracking-widest text-teal-500 title-font">
-                  <font className="vertical-align: inherit;">
-                    <font className="vertical-align: inherit;">SUBTITULAR</font>
-                  </font>
-                </h3>
                 <h2 className="mb-4 text-lg font-medium text-gray-900 title-font">
                   <font className="vertical-align: inherit;">
                     <font className="vertical-align: inherit;">
-                      Coliseo Roma
+                      Dioxido de Cloro 500ml
                     </font>
                   </font>
                 </h2>
-                <p className="text-base leading-relaxed">
+                <div className="flex object-scale-down w-full p-3 antialiased bg-white rounded-lg shadow-lg"
+                  >
+                  
+                <p className="text-base leading-relaxed text-black">
                   <font className="vertical-align: inherit;">
                     <font className="vertical-align: inherit;">
                       Chaleco flexitario de 8 bits con diseño de dedos en la
@@ -46,27 +45,26 @@ const Categorias = () => {
                   </font>
                 </p>
               </div>
+              </div>
             </div>
             <div className="p-4 xl:w-1/3 md:w-1/2">
-              <div className="p-6 bg-gray-100 rounded-lg">
+              <div className="p-6 rounded-lg shadow-md bg-blue-50">
                 <img
-                  className="object-cover object-center w-full h-40 mb-6 rounded"
-                  src="https://dummyimage.com/722x402"
+                  className="object-contain object-center w-full h-40 mb-6 rounded"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608082284/tglswwqcy2h3ltoucdei.png"
                   alt="contenido"
                 />
-                <h3 className="text-xs font-medium tracking-widest text-teal-500 title-font">
-                  <font className="vertical-align: inherit;">
-                    <font className="vertical-align: inherit;">SUBTITULAR</font>
-                  </font>
-                </h3>
                 <h2 className="mb-4 text-lg font-medium text-gray-900 title-font">
                   <font className="vertical-align: inherit;">
                     <font className="vertical-align: inherit;">
-                      La gran pirámide de Giza
+                      Dioxido de Cloro 500ml
                     </font>
                   </font>
                 </h2>
-                <p className="text-base leading-relaxed">
+                <div className="flex object-scale-down w-full p-3 antialiased rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-green-200"
+                  >
+                  
+                <p className="text-base leading-relaxed text-white">
                   <font className="vertical-align: inherit;">
                     <font className="vertical-align: inherit;">
                       Chaleco flexitario de 8 bits con diseño de dedos en la
@@ -79,40 +77,42 @@ const Categorias = () => {
                   </font>
                 </p>
               </div>
-            </div>
-            <div className="p-4 xl:w-1/3 md:w-1/2">
-              <div className="p-6 bg-gray-100 rounded-lg">
-                <img
-                  className="object-cover object-center w-full h-40 mb-6 rounded"
-                  src="https://dummyimage.com/723x403"
-                  alt="contenido"
-                />
-                <h3 className="text-xs font-medium tracking-widest text-teal-500 title-font">
-                  <font className="vertical-align: inherit;">
-                    <font className="vertical-align: inherit;">SUBTITULAR</font>
-                  </font>
-                </h3>
-                <h2 className="mb-4 text-lg font-medium text-gray-900 title-font">
-                  <font className="vertical-align: inherit;">
-                    <font className="vertical-align: inherit;">
-                      San Francisco
-                    </font>
-                  </font>
-                </h2>
-                <p className="text-base leading-relaxed">
-                  <font className="vertical-align: inherit;">
-                    <font className="vertical-align: inherit;">
-                      Chaleco flexitario de 8 bits con diseño de dedos en la
-                      calle.{" "}
-                    </font>
-                    <font className="vertical-align: inherit;">
-                      El hexágono de la destilería interrumpe la bombilla de
-                      Edison.
-                    </font>
-                  </font>
-                </p>
               </div>
             </div>
+            <a className="p-4 cursor-pointer xl:w-1/3 md:w-1/2">
+              <div className="p-6 rounded-lg shadow-md bg-gradient-to-r from-blue-400 to-green-200">
+                  <img
+                    className="object-contain object-center w-full h-40 mb-6 rounded"
+                    src="https://res.cloudinary.com/apidev/image/upload/v1608082284/tglswwqcy2h3ltoucdei.png"
+                    alt="contenido"
+                  />
+                  <h2 className="mb-4 text-lg font-medium text-gray-900 title-font">
+                    <font className="vertical-align: inherit;">
+                      <font className="vertical-align: inherit;">
+                        Dioxido de Cloro 500ml
+                      </font>
+                    </font>
+                  </h2>
+                  <div className="flex object-scale-down w-full p-3 antialiased bg-white rounded-lg shadow-lg"
+                    >
+                    
+                  <p className="text-base leading-relaxed text-black">
+                    <font className="vertical-align: inherit;">
+                      <font className="vertical-align: inherit;">
+                        Chaleco flexitario de 8 bits con diseño de dedos en la
+                        calle.{" "}
+                      </font>
+                      <font className="vertical-align: inherit;">
+                        El hexágono de la destilería interrumpe la bombilla de
+                        Edison.
+                      </font>
+                    </font>
+                  </p>
+                </div>
+              </div>
+            </a>
+            
+            
           </div>
         </div>
       </section>

@@ -15,150 +15,158 @@ const Productos = () => {
         </div>
           
           <div className="flex flex-wrap -m-4">
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/420x260"
+                  className="block object-contain w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608158139/kitPrueba/aeijxs5fgrnxop2xff6d.jpg"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  PURIFICADORES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  The Catalyzer
+                Dióxido de Cloro 500 ml.
                 </h2>
-                <p className="mt-1">$16.00</p>
+                <p className="mt-1">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+            
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/421x261"
+                  className="block object-contain w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608158139/kitPrueba/qcvq0mvd8cemxauswi9g.jpg"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  PURIFICADORES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  Shooting Stars
+                Dióxido de Cloro 500 ml.
                 </h2>
-                <p className="mt-1">$21.15</p>
+                <p className="mt-1">$30.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+           
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/422x262"
+                  className="block object-contain object-center w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608158139/kitPrueba/mi6st8soupnmp3kois13.jpg"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  PURIFICADORES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  Neptune
+                  Dióxido de Cloro 500 ml.
                 </h2>
-                <p className="mt-1">$12.00</p>
+                <p className="mt-1">$60.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+            
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/423x263"
+                  className="block object-contain object-center w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608159719/kitPrueba/gylbitafuufo11i2vamd.webp"
+                />
+              </a>
+              <div className="mt-4">
+                <h3 className="mb-1 text-xs tracking-widest text-gray-500 uppercase title-font">
+                  Filtros para tanques
+                </h3>
+                <h2 className="text-lg font-medium text-gray-900 title-font">
+                  Filtro de sedimentos 
+                </h2>
+                <p className="mt-1">$5.00</p>
+              </div>
+            </div>
+            
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
+                <img
+                  alt="ecommerce"
+                  className="block object-contain object-center w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608160067/kitPrueba/y2wieh5qbzh64mnyvp8z.png"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  PURIFICADORES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  The 400 Blows
+                Ef-Chlor 4 gm
+                Para 1200 Litros de agua
                 </h2>
-                <p className="mt-1">$18.40</p>
+                <p className="mt-1">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+            
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/424x264"
+                  className="block object-contain object-center w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608158139/kitPrueba/xbceylrnc0vmolzqd1lj.jpg"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  SOLVENTES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  The Catalyzer
+                  DMSO Dimetilsulfoxido 120 ml
                 </h2>
-                <p className="mt-1">$16.00</p>
+                <p className="mt-1">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+            
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/425x265"
+                  className="block object-contain object-center w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608160302/kitPrueba/gpj0kjoqkxloohhuyf9g.png"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  PURIFICADORES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  Shooting Stars
+                Ef-Chlor 3,5 g por 1000 litros de agua
                 </h2>
-                <p className="mt-1">$21.15</p>
+                <p className="mt-1">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
+            <div className="w-full p-4 cursor-pointer lg:w-1/4 md:w-1/2 ">
+              <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/427x267"
+                  className="block object-contain object-center w-full h-full"
+                  src="https://res.cloudinary.com/apidev/image/upload/v1608160630/kitPrueba/eqlj6lh3nuxupf1vdtkn.jpg"
                 />
               </a>
               <div className="mt-4">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
+                  SOLVENTES
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
-                  Neptune
+                  DMSO Dimetilsulfoxido Grado Farmaceutico 99.995%
                 </h2>
-                <p className="mt-1">$12.00</p>
+                <p className="mt-1">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 lg:w-1/4 md:w-1/2">
-              <a className="relative block h-48 overflow-hidden rounded">
-                <img
-                  alt="ecommerce"
-                  className="block object-cover object-center w-full h-full"
-                  src="https://dummyimage.com/428x268"
-                />
-              </a>
-              <div className="mt-4">
-                <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
-                  CATEGORY
-                </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
-                  The 400 Blows
-                </h2>
-                <p className="mt-1">$18.40</p>
-              </div>
-            </div>
+          
           </div>
         </div>
       </section>

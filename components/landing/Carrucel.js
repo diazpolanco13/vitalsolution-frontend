@@ -5,7 +5,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 const items = [
     <div className="item" data-value="0">
-        <img className="object-cover object-center w-full rounded h-96" alt="hero" src="https://res.cloudinary.com/apidev/image/upload/v1608072900/UI/nwwbyjtza0ernfffww9c.jpg" />
+        <img className="object-contain object-right w-full rounded h-96" alt="hero" src="https://res.cloudinary.com/apidev/image/upload/v1608156601/gv2xkc15nuabjfhdqbbp.jpg" />
     </div>,
     <div className="item" data-value="1">
         <img className="object-cover object-center w-full rounded h-96" alt="hero" src="https://res.cloudinary.com/apidev/image/upload/v1608072892/UI/srxvt9par1ftuexiroxq.jpg" />
@@ -22,7 +22,7 @@ const Carrucel = () => {
                <AliceCarousel
                     autoPlay
                     // autoPlayStrategy="default"
-                    autoPlayInterval={500}
+                    autoPlayInterval={5000}
                     animationDuration={1000}
                     animationType="fadeout"
                     infinite
