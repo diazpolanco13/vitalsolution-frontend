@@ -1,5 +1,7 @@
 import React from 'react'
 import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 
 const items = [
     <div className="item" data-value="0">
@@ -22,15 +24,13 @@ const Carrucel = () => {
                     // autoPlayStrategy="default"
                     autoPlayInterval={500}
                     animationDuration={1000}
-                    animationType="slide"
+                    animationType="fadeout"
                     infinite
                     touchTracking={true}
                     disableButtonsControls
                     items={items}
                     
                 />
-             {/* <div className="flex flex-col items-center justify-center w-full mx-auto">
-            </div> */}
         </>
     )
 }
