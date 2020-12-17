@@ -16,7 +16,7 @@ const Categorias = () => {
           <div className="flex flex-wrap -m-4">
            
             <div className="p-4 xl:w-1/3 md:w-1/2">
-              <div className="p-6 rounded-lg shadow-md bg-blue-50">
+              <div className="z-0 object-none p-6 rounded-lg shadow-md bg-blue-50 bg-bg-card">
                 <img
                   className="object-contain object-center w-full h-40 mb-6 rounded"
                   src="https://res.cloudinary.com/apidev/image/upload/v1608082284/tglswwqcy2h3ltoucdei.png"
@@ -24,13 +24,12 @@ const Categorias = () => {
                 />
                 <h2 className="mb-4 text-lg font-medium text-gray-900 title-font">
                   <font className="vertical-align: inherit;">
-                    <font className="vertical-align: inherit;">
+                    <font className="text-white vertical-align: inherit;">
                       Dioxido de Cloro 500ml
                     </font>
                   </font>
                 </h2>
-                <div className="flex object-scale-down w-full p-3 antialiased bg-white rounded-lg shadow-lg"
-                  >
+                <div className="flex w-full p-3 antialiased bg-white rounded-lg shadow-lg">
                   
                 <p className="text-base leading-relaxed text-black">
                   <font className="vertical-align: inherit;">

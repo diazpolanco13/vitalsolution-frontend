@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 import Hero from './Hero'
 import Navbar from './Navbar'
 
@@ -6,7 +7,8 @@ const Layout = ({ children }) => {
     return (
         <>
             <Navbar />
-            { children }
+            { children}
+            <Footer />
         </>
     )
 }
