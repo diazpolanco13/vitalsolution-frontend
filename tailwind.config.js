@@ -17,6 +17,7 @@ module.exports = {
       backgroundImage: {
         'producto': "url('https://res.cloudinary.com/apidev/image/upload/v1608142883/UI/bhxirputbuees411o4qf.jpg')",
         'bg-card': "url('https://res.cloudinary.com/apidev/image/upload/v1608171342/UI/cczzvce9xikqdcgqkmrz.jpg')",
+        'banner': "url('https://res.cloudinary.com/apidev/image/upload/v1608173617/UI/meptxttqtwzxheicxyzx.jpg')",
       },
     },
   },
