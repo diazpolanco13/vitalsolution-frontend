@@ -27,15 +27,15 @@ const Navbar = () => {
   
   return (
     <>
-      <div className="relative bg-white">
-        <div className="relative z-20 shadow">
-          <div className="flex items-center justify-between px-4 py-5 mx-auto max-w-7xl sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+      <div className="relative">
+        <div className="relative z-20 shadow-md">
+          <div className="flex items-center justify-between h-24 px-4 mx-auto max-w-7xl sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
     {/* Logo */}         
             <div>
               <a href="#" className="flex">
                 <span className="sr-only">Vital Solution Store</span>
                 <img
-                  className="w-auto h-8 sm:h-10"
+                  className="w-auto h-10 sm:h-16"
                   src="https://firebasestorage.googleapis.com/v0/b/vital-solution-store.appspot.com/o/logo-192x192.png?alt=media&token=6d362387-12da-443c-b102-1cebd52c7d3a"
                   alt="Vital Solution Store"
                 />

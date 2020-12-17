@@ -48,6 +48,7 @@ const Categorias = () => {
                 Vamos
               </button>
             </div>
+           
           </div>
         </div>
       </section>
