@@ -23,6 +23,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      translate: ['motion-reduce'],
       transitionDelay: ['hover', 'focus'],
       gradientColorStops: ['active', 'group-hover'],
       textOpacity: ['dark'],
