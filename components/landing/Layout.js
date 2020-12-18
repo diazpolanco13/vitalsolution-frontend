@@ -9,7 +9,9 @@ const Layout = ({ children }) => {
         <>
             <SocialTira />
             <Navbar />
-            { children}
+            <div className="bg-white">
+                { children}
+            </div>
             <Footer />
         </>
     )
