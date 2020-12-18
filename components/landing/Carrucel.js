@@ -22,9 +22,9 @@ const Carrucel = () => {
                <AliceCarousel
                     autoPlay
                     // autoPlayStrategy="default"
-                    autoPlayInterval={5000}
+                    autoPlayInterval={3000}
                     animationDuration={1000}
-                    animationType="fadeout"
+                    animationType="slide"
                     infinite
                     touchTracking={true}
                     disableButtonsControls
