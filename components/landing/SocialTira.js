@@ -3,12 +3,10 @@ import React from "react";
 const SocialTira = () => {
   return (
     <>
-      <div className="bg-blue-600">
-        <div className="container flex flex-col flex-wrap px-5 py-1 mx-auto sm:flex-row">
-          <p className="text-sm text-center text-white sm:text-left">
-            © 2020 VitalSolutionStore
-          </p>
-          <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
+      <div className="flex bg-blue-600">
+        <div className="container flex px-5 py-1 mx-auto sm:flex-row ">
+          
+          <div className="inline-flex mt-2 sm:mt-0 ">
             <a href="#" className="text-white">
               <svg
                 fill="currentColor"
@@ -47,8 +45,8 @@ const SocialTira = () => {
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
               </svg>
             </a>
-            
-          </span>
+          </div>
+          
         </div>
       </div>
     </>
