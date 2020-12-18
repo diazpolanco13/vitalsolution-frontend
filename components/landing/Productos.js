@@ -14,8 +14,9 @@ const Productos = () => {
             </div>
         </div>
           
-          <div className="flex flex-wrap -m-4 group">
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+          <div className="flex flex-wrap -m-4 ">
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -23,17 +24,18 @@ const Productos = () => {
                   src="https://res.cloudinary.com/apidev/image/upload/v1608158139/kitPrueba/aeijxs5fgrnxop2xff6d.jpg"
                 />
               </a>
-              <div className="mt-4">
+              <div className="mt-4 ">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   PURIFICADORES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                 Dióxido de Cloro 500 ml.
                 </h2>
-                <p className="mt-1">$7.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$7.00</p>
               </div>
-            </div>           
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+            </div>   
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -45,13 +47,14 @@ const Productos = () => {
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   PURIFICADORES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                 Dióxido de Cloro 500 ml.
                 </h2>
-                <p className="mt-1">$30.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$30.00</p>
               </div>
             </div>           
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -63,13 +66,14 @@ const Productos = () => {
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   PURIFICADORES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                   Dióxido de Cloro 500 ml.
                 </h2>
-                <p className="mt-1">$60.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$60.00</p>
               </div>
             </div>            
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+           
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -81,13 +85,14 @@ const Productos = () => {
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 uppercase title-font">
                   Filtros para tanques
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                   Filtro de sedimentos 
                 </h2>
-                <p className="mt-1">$5.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$5.00</p>
               </div>
             </div>            
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -99,14 +104,15 @@ const Productos = () => {
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   PURIFICADORES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                 Ef-Chlor 4 gm
                 Para 1200 Litros de agua
                 </h2>
-                <p className="mt-1">$7.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$7.00</p>
               </div>
             </div>            
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -118,13 +124,14 @@ const Productos = () => {
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   SOLVENTES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                   DMSO Dimetilsulfoxido 120 ml
                 </h2>
-                <p className="mt-1">$7.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$7.00</p>
               </div>
             </div> 
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -136,13 +143,14 @@ const Productos = () => {
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   PURIFICADORES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                 Ef-Chlor 3,5 g por 1000 litros de agua
                 </h2>
-                <p className="mt-1">$7.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
+            
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95 group">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -150,14 +158,14 @@ const Productos = () => {
                   src="https://res.cloudinary.com/apidev/image/upload/v1608160630/kitPrueba/eqlj6lh3nuxupf1vdtkn.jpg"
                 />
               </a>
-              <div className="mt-4">
+              <div className="mt-4 ">
                 <h3 className="mb-1 text-xs tracking-widest text-gray-500 title-font">
                   SOLVENTES
                 </h3>
-                <h2 className="text-lg font-medium text-gray-900 title-font">
+                <h2 className="text-lg font-medium text-gray-900 title-font group-hover:text-blue-700">
                   DMSO Dimetilsulfoxido Grado Farmaceutico 99.995%
                 </h2>
-                <p className="mt-1">$7.00</p>
+                <p className="mt-1 group-hover:text-blue-700">$7.00</p>
               </div>
             </div>
           
