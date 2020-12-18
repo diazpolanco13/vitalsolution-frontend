@@ -11,6 +11,7 @@ const OBTENER_PRODUCTOS = gql`
       id
       imagen
       nombre
+      categoria
       descripcion
       existencia
       precio
@@ -26,7 +27,7 @@ const Productos = () => {
 
   const { obtenerProductos } = data || { obtenerProductos: [] };
 
-  // console.log(obtenerProductos);
+  console.log(obtenerProductos);
 
   return (
     <>
