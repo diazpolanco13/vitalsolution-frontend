@@ -9,11 +9,12 @@ const Categorias = () => {
             Categorias
           </h1>
           <div className="flex flex-wrap -m-4">
+            
             <div className="relative flex-row w-full p-4 transition duration-500 ease-in-out transform lg:w-1/3 md:w-1/2 group hover:scale-105 motion-reduce:transform-none">
               <img
                 className="z-0 shadow-lg cursor-pointer group-hover:bg-gray-700 md:w-full"
-                src="https://res.cloudinary.com/apidev/image/upload/v1608156849/UI/rozpbzvb9hsqoftgcg1g.jpg"
-                alt=""
+                src="https://res.cloudinary.com/apidev/image/upload/v1608279919/UI/sf9aefuoog2noesfe5sh.jpg"
+                alt="Filtros de gua"
               />
               <button
                 type="button"
@@ -22,11 +23,12 @@ const Categorias = () => {
                 Vamos
               </button>
             </div>
+            
             <div className="relative flex-row w-full p-4 transition duration-500 ease-in-out transform lg:w-1/3 md:w-1/2 group hover:scale-105 motion-reduce:transform-none">
               <img
                 className="z-0 shadow-lg cursor-pointer group-hover:bg-gray-700"
-                src="https://res.cloudinary.com/apidev/image/upload/v1608156849/UI/rozpbzvb9hsqoftgcg1g.jpg"
-                alt=""
+                src="https://res.cloudinary.com/apidev/image/upload/v1608280758/UI/jlzditsdr7lmxhgfkcke.jpg"
+                alt="potabilizadoras"
               />
               <button
                 type="button"
@@ -35,11 +37,12 @@ const Categorias = () => {
                 Vamos
               </button>
             </div>
+            
             <div className="relative flex-row w-full p-4 transition duration-500 ease-in-out transform lg:w-1/3 md:w-1/2 group hover:scale-105 motion-reduce:transform-none">
               <img
                 className="z-0 shadow-lg cursor-pointer group-hover:bg-gray-700"
-                src="https://res.cloudinary.com/apidev/image/upload/v1608156849/UI/rozpbzvb9hsqoftgcg1g.jpg"
-                alt=""
+                src="https://res.cloudinary.com/apidev/image/upload/v1608280089/UI/brusku6xba58mksbktut.jpg"
+                alt="Purificadores de agua"
               />
               <button
                 type="button"
