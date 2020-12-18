@@ -14,8 +14,8 @@ const Productos = () => {
             </div>
         </div>
           
-          <div className="flex flex-wrap -m-4">
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+          <div className="flex flex-wrap -m-4 group">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -33,7 +33,7 @@ const Productos = () => {
                 <p className="mt-1">$7.00</p>
               </div>
             </div>           
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -51,7 +51,7 @@ const Productos = () => {
                 <p className="mt-1">$30.00</p>
               </div>
             </div>           
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -69,7 +69,7 @@ const Productos = () => {
                 <p className="mt-1">$60.00</p>
               </div>
             </div>            
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -87,7 +87,7 @@ const Productos = () => {
                 <p className="mt-1">$5.00</p>
               </div>
             </div>            
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -106,7 +106,7 @@ const Productos = () => {
                 <p className="mt-1">$7.00</p>
               </div>
             </div>            
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -124,7 +124,7 @@ const Productos = () => {
                 <p className="mt-1">$7.00</p>
               </div>
             </div> 
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
@@ -142,7 +142,7 @@ const Productos = () => {
                 <p className="mt-1">$7.00</p>
               </div>
             </div>
-            <div className="w-full p-4 cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 ">
+            <div className="w-full p-4 transition duration-500 ease-in-out transform cursor-pointer lg:w-1/4 sm:w-1/2 md:w-1/3 hover:bg-gray-50 hover:-translate-y-1 hover:scale-95">
               <a className="relative block h-48 overflow-hidden transition duration-300 ease-in-out delay-150 rounded ">
                 <img
                   alt="ecommerce"
