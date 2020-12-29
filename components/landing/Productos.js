@@ -27,7 +27,6 @@ const Productos = () => {
 
   const { obtenerProductos } = data || { obtenerProductos: [] };
   
-  console.log(obtenerProductos)
   const { id,  nombre,  imagen,  descripcion,  existencia,  precio,  moneda, categoria } = obtenerProductos
   
 
@@ -54,7 +53,7 @@ const Productos = () => {
                     nombre={producto.nombre}
                     imagen={producto.imagen}
                     categoria={producto.categoria}
-                    descripcion={producto.descripcion}
+                    descripcion={producto.escripcion}
                     existencia={producto.existencia}
                     precio={producto.precio}
                     moneda={producto.moneda}
