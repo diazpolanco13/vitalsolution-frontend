@@ -50,6 +50,7 @@ const Productos = () => {
                 obtenerProductos.map(producto => (
                   <Producto
                     key={producto.id}
+                    id={producto.id}
                     nombre={producto.nombre}
                     imagen={producto.imagen}
                     categoria={producto.categoria}
