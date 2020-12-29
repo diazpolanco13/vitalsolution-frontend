@@ -476,9 +476,6 @@ const EditarProducto = () => {
                                   onChange={props.handleChange}
                                   onBlur={props.handleBlur}
                                 >
-                                  <option value="none" hidden>
-                                    Seleccione un tipo
-                                  </option>
                                   <option>Dolares</option>
                                   <option>Euros</option>
                                   <option>Bolivares</option>

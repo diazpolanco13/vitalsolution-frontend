@@ -1,11 +1,21 @@
 import React from 'react'
-import Sping from '../components/Sping'
+import Categorias from '../components/landing/Categorias'
+import Hero from '../components/landing/Hero'
+import Layout from '../components/landing/Layout'
+import Productos from '../components/landing/Productos'
+import Testimonios from '../components/landing/Testimonios'
+// import Sping from '../components/Sping'
 
 
 const index = () => {
   return (
     <>
-      <h1>Bienvenido a Vital Solution Store</h1>
+      <Layout>
+        <Hero />
+        <Categorias />
+        <Productos />
+        <Testimonios />
+      </Layout>
     </>
   )
 }

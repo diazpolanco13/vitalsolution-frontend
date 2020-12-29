@@ -10,32 +10,34 @@ import { gql, useMutation } from '@apollo/client'
 
 const NUEVO_PRODUCTO = gql`
     mutation nuevoProducto($input: ProductoInput){
-        nuevoProducto(input: $input){
-            id
-            imagen
-            nombre
-            descripcion
-            existencia
-            precio
-            moneda
-            
-        }
+      nuevoProducto(input: $input){
+        id
+        nombre
+        categoria
+        descripcion
+        existencia
+        precio
+        moneda
+        creado
+        imagen
+      }
     }
 `;
 
 const OBTENER_PRODUCTOS = gql`
-  query obtenerProductos {
-    obtenerProductos {
-      id
-      imagen
-      nombre
-      descripcion
-      existencia
-      precio
-      moneda
-      creado
+    query obtenerProductos {
+      obtenerProductos {
+        id
+        imagen
+        nombre
+        categoria
+        descripcion
+        existencia
+        precio
+        moneda
+        creado
+      }
     }
-  }
 `;
 
 const NuevoProducto = () => {
@@ -70,6 +72,7 @@ const NuevoProducto = () => {
     initialValues: {
         imagen: "",
         nombre: "",
+        categoria: "",
         descripcion: "",
         existencia: "",
         precio: "",
@@ -81,6 +84,8 @@ const NuevoProducto = () => {
             .required("El nombre del producto es obligatorio"),
         descripcion: Yup.string()
             .required("La descrición del producto es obligatoria"),
+        categoria: Yup.string()
+            .required("La categoria del producto es obligatoria"),
         existencia: Yup.number()
             .required("Indique la cantidad de producto")
             .positive('No se aceptan numeros negativos')
@@ -95,8 +100,8 @@ const NuevoProducto = () => {
     //3- Enviamos el formulario al Backend
     onSubmit: async (valores) => {
 
-        let { nombre, descripcion, existencia, precio, moneda } = valores;
-
+        let { nombre, categoria, descripcion, existencia, precio, moneda } = valores;
+       
         precio = parseInt(precio, 10)
         existencia = parseInt(existencia, 10)
 
@@ -107,6 +112,7 @@ const NuevoProducto = () => {
           variables: {
                 input: {
                 nombre,
+                categoria,
                 descripcion,
                 existencia,
                 precio,
@@ -126,7 +132,13 @@ const NuevoProducto = () => {
         //Redireccionar hacia clientes
         router.push("/dashboard/productos");
         } catch (error) {
-            console.log(error)
+          console.log(error)
+          
+          Swal.fire(
+          "Error",
+          error.message,
+          'error'
+          )
         
       }
     },
@@ -288,6 +300,43 @@ const NuevoProducto = () => {
                         {formik.touched.nombre && formik.errors.nombre ? (
                           <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
                             {formik.errors.nombre}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      <div className="col-span-6 md:col-span-6">
+                        <label
+                          htmlFor="categoria"
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                         Categoria
+                        </label>
+                        <div className="mt-1">
+                        <select
+                           type="text"
+                           id="categoria"
+                            className={`block w-full max-w-lg px-3 py-2 placeholder-gray-400  border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none  sm:text-sm   ${
+                                (formik.errors.categoria)
+                                  ? "focus:border-red-500 focus:ring-red-500 placeholder-opacity-100 placeholder-red-300 border-red-500 border-2"
+                                  : "focus:border-blue-500 focus:ring-blue-500 border"
+                              }  sm:max-w-xs sm:text-s`}
+                                placeholder={`${(formik.errors.categoria) && formik.errors.categoria}`
+                                }
+                            value={formik.values.categoria}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                          > 
+                            <option  value="none" hidden>Seleccione una categoria</option>
+                            <option >PURIFICADORES</option>
+                            <option >FILTROS</option>
+                            <option >POTABILIZADORES</option>
+                            <option >DMSO</option>
+                          </select>
+                          
+                        </div>
+                        {formik.touched.categoria && formik.errors.categoria ? (
+                          <span className="inline-flex items-center justify-self-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-red-500 text-white">
+                            {formik.errors.categoria}
                           </span>
                         ) : null}
                       </div>
